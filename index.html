@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111111">
+  <meta name="description" content="AK Clothing — everyday essentials, tees and shirts.">
+  <title>AK Clothing | Everyday, Elevated</title>
+  <style>
+    :root{--ink:#111;--paper:#f7f6f2;--muted:#777;--line:#e7e4dc;--white:#fff;--accent:#c6a779}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Arial,Helvetica,sans-serif}
+    a{color:inherit;text-decoration:none}button{font:inherit;cursor:pointer}.topbar{background:#111;color:#fff;text-align:center;padding:9px 14px;font-size:11px;letter-spacing:1.5px}
+    header{height:76px;padding:0 6vw;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);background:rgba(247,246,242,.96);position:sticky;top:0;z-index:5}
+    .logo{font-size:27px;font-weight:900;letter-spacing:3px}.logo small{display:block;font-size:8px;letter-spacing:4px;text-align:center;margin-top:2px;font-weight:600}
+    nav{display:flex;gap:30px;font-size:12px;text-transform:uppercase;letter-spacing:1.2px}.nav-actions{display:flex;gap:10px;align-items:center}.pill{border:1px solid #111;padding:11px 17px;border-radius:2px;font-size:11px;text-transform:uppercase;letter-spacing:1px}
+    .hero{min-height:520px;display:grid;grid-template-columns:1.05fr .95fr;background:#e9e5dc}.hero-copy{padding:85px 8vw;display:flex;flex-direction:column;justify-content:center}.eyebrow{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#716858}.hero h1{font-size:clamp(46px,7vw,88px);line-height:.95;letter-spacing:-4px;margin:22px 0 18px;max-width:600px}.hero p{color:#5f5a52;line-height:1.7;max-width:390px;font-size:14px}.primary{display:inline-block;background:#111;color:white;padding:16px 24px;margin-top:20px;width:max-content;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;border:0}.hero-image{min-height:440px;background:#d3c8b7 url('https://images.unsplash.com/photo-1523398002811-999ca8dec234?auto=format&fit=crop&w=1200&q=85') center/cover no-repeat}
+    .section{padding:76px 6vw}.section-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:28px}.section h2{font-size:34px;letter-spacing:-1.2px;margin:8px 0}.section-head p{color:var(--muted);font-size:12px}.products{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.product{background:#fff}.product img{width:100%;height:340px;object-fit:cover;display:block;background:#e5e1d9}.product-info{padding:17px}.product-title{font-size:14px;font-weight:700}.product-sub{font-size:11px;color:var(--muted);margin-top:6px}.price-row{display:flex;justify-content:space-between;align-items:center;margin-top:15px}.price{font-size:14px;font-weight:700}.add{background:#111;color:#fff;border:0;padding:10px 13px;font-size:10px;letter-spacing:1px;text-transform:uppercase}
+    .banner{margin:0 6vw 70px;background:#171717;color:#fff;padding:45px 6vw;display:flex;align-items:center;justify-content:space-between;gap:20px}.banner h2{font-size:30px;margin:0 0 8px}.banner p{color:#bbb;font-size:12px;margin:0}.banner a{border:1px solid #fff;padding:14px 18px;font-size:10px;letter-spacing:1px;text-transform:uppercase;white-space:nowrap}
+    .about{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center;background:#edeae3}.about img{width:100%;height:360px;object-fit:cover}.about p{color:#666;line-height:1.8;font-size:14px;max-width:440px}
+    footer{background:#111;color:#fff;padding:45px 6vw 25px;display:flex;justify-content:space-between;gap:25px;flex-wrap:wrap}.footer-brand{font-size:24px;font-weight:900;letter-spacing:3px}.footer-note{font-size:11px;color:#aaa;line-height:1.8;margin-top:10px}.footer-links{display:flex;gap:20px;align-items:center;font-size:11px;color:#ddd}.copyright{width:100%;border-top:1px solid #333;padding-top:18px;margin-top:15px;color:#777;font-size:10px}
+    .cart-count{display:inline-flex;align-items:center;justify-content:center;background:#c6a779;color:#111;border-radius:50%;width:18px;height:18px;font-size:10px;margin-left:4px}
+    @media(max-width:760px){header{height:65px;padding:0 5vw}nav{gap:13px;font-size:10px}.nav-actions .pill{padding:9px 10px}.hero{grid-template-columns:1fr}.hero-copy{padding:60px 7vw}.hero-image{min-height:320px}.products{grid-template-columns:1fr 1fr;gap:10px}.product img{height:230px}.section{padding:55px 5vw}.section-head{display:block}.section-head p{margin-top:8px}.banner{margin:0 5vw 50px;padding:32px 25px;display:block}.banner a{display:inline-block;margin-top:22px}.about{grid-template-columns:1fr;gap:25px}.about img{height:280px}.footer-links{flex-wrap:wrap}}
+    @media(max-width:420px){nav{gap:9px}nav a:last-child{display:none}.logo{font-size:23px}.products{grid-template-columns:1fr 1fr}.product img{height:190px}.product-info{padding:12px}.add{padding:9px 8px;font-size:9px}}
+  </style>
+</head>
+<body>
+  <div class="topbar">WELCOME TO AK CLOTHING · EVERYDAY STYLE, MADE SIMPLE</div>
+  <header>
+    <a class="logo" href="#home">AK<small>CLOTHING</small></a>
+    <nav><a href="#home">Home</a><a href="#shop">Shop</a><a href="#about">Our story</a></nav>
+    <div class="nav-actions"><a class="pill" href="#shop">Shop now <span class="cart-count" id="cartCount">0</span></a></div>
+  </header>
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-copy"><span class="eyebrow">THE EVERYDAY COLLECTION</span><h1>STYLE THAT<br>FEELS LIKE YOU.</h1><p>Fresh everyday essentials, from easy-going tees to classic shirts. Find your look with AK Clothing.</p><a class="primary" href="#shop">Explore collection</a></div>
+      <div class="hero-image" role="img" aria-label="Minimal clothing collection"></div>
+    </section>
+    <section class="section" id="shop">
+      <div class="section-head"><div><span class="eyebrow">CURATED FOR EVERY DAY</span><h2>Featured collection</h2></div><p>Choose a piece and order directly through WhatsApp.</p></div>
+      <div class="products">
+        <article class="product"><img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=85" alt="Classic white T-shirt"><div class="product-info"><div class="product-title">Classic White Tee</div><div class="product-sub">Everyday essential · T-shirt</div><div class="price-row"><span class="price">Rs. 1,299</span><button class="add" onclick="addToCart('Classic White Tee','1299')">Add to order</button></div></div></article>
+        <article class="product"><img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=800&q=85" alt="Casual style shirt"><div class="product-info"><div class="product-title">Everyday Casual Tee</div><div class="product-sub">Relaxed fit · T-shirt</div><div class="price-row"><span class="price">Rs. 1,399</span><button class="add" onclick="addToCart('Everyday Casual Tee','1399')">Add to order</button></div></div></article>
+        <article class="product"><img src="https://images.unsplash.com/photo-1598033129183-c4f50c736f10?auto=format&fit=crop&w=800&q=85" alt="Smart casual shirt"><div class="product-info"><div class="product-title">Smart Casual Shirt</div><div class="product-sub">Classic look · Shirt</div><div class="price-row"><span class="price">Rs. 1,899</span><button class="add" onclick="addToCart('Smart Casual Shirt','1899')">Add to order</button></div></div></article>
+      </div>
+    </section>
+    <section class="banner"><div><h2>Your style. Your everyday.</h2><p>Need help choosing a size or placing an order? Message us directly.</p></div><a href="https://wa.me/923086625610?text=Hi%20AK%20Clothing%2C%20I%20need%20help%20with%20an%20order.">Chat on WhatsApp</a></section>
+    <section class="section about" id="about"><img src="https://images.unsplash.com/photo-1485230895905-ec40ba36b9bc?auto=format&fit=crop&w=1000&q=85" alt="Clothing on a rack"><div><span class="eyebrow">ABOUT AK CLOTHING</span><h2>Good basics.<br>Good energy.</h2><p>AK Clothing is about simple pieces that make getting dressed easy. Explore our T-shirts and shirts, choose your favourites, and contact us to place an order. We’re building this brand one good piece at a time.</p><a class="primary" href="https://wa.me/923086625610?text=Hi%20AK%20Clothing%2C%20please%20share%20your%20latest%20collection.">Contact us</a></div></section>
+  </main>
+  <footer><div><div class="footer-brand">AK CLOTHING</div><div class="footer-note">Everyday style, made simple.<br>Pakistan</div></div><div class="footer-links"><a href="#shop">Shop</a><a href="#about">About</a><a href="https://wa.me/923086625610">WhatsApp</a></div><div class="copyright">© <span id="year"></span> AK Clothing. All rights reserved.</div></footer>
+  <script>
+    const cart=[];
+    function addToCart(name,price){cart.push({name,price});document.getElementById('cartCount').textContent=cart.length;const lines=cart.map((item,i)=>`${i+1}. ${item.name} — Rs. ${Number(item.price).toLocaleString('en-PK')}`);const total=cart.reduce((sum,item)=>sum+Number(item.price),0);const message=`Hi AK Clothing! I would like to order:\n${lines.join('\n')}\nTotal (before delivery): Rs. ${total.toLocaleString('en-PK')}\nPlease confirm sizes, availability and delivery details.`;if(confirm(`${name} added. Send your order on WhatsApp now?`)){window.open('https://wa.me/923086625610?text='+encodeURIComponent(message),'_blank')}}
+    document.getElementById('year').textContent=new Date().getFullYear();
+  </script>
+</body>
+</html>
