@@ -7,125 +7,188 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
 body{background:#f5f5f5}
-header{background:#111;color:#fff;padding:18px 15px;text-align:center;position:sticky;top:0;z-index:100;cursor:pointer}
-header h1{font-size:26px;letter-spacing:2px}
-header h1 span{color:#ff3b30}
-header p{font-size:11px;color:#aaa;margin-top:4px;letter-spacing:1px}
-.hero{background:#111;color:#fff;text-align:center;padding:35px 15px}
-.hero h2{font-size:27px;line-height:1.3}
-.hero h2 span{color:#ffcc00}
-.hero p{margin:12px 0 18px;color:#ccc;font-size:14px}
-.hero button{background:#ff3b30;color:#fff;border:0;padding:13px 30px;border-radius:25px;font-weight:bold;font-size:15px}
-#searchBox{padding:15px}
-#searchBox input{width:100%;padding:13px;border-radius:25px;border:1px solid #ddd;font-size:14px;outline:none;background:#fff}
-.secTitle{padding:0 15px;font-size:19px;font-weight:bold}
-#products{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;padding:15px}
-.card{background:#fff;width:170px;border-radius:15px;overflow:hidden;box-shadow:0 5px 15px rgba(0,0,0,.08);text-align:left;padding-bottom:12px}
-.card img{width:100%;height:190px;object-fit:cover}
-.card .in{padding:10px}
-.card h3{font-size:14px;margin-bottom:4px}
-.card .cat{font-size:12px;color:#888}
-.card .price{font-weight:bold;font-size:16px;margin:6px 0}
-.card .buy{display:block;text-align:center;background:#25D366;color:#fff;text-decoration:none;padding:11px;border-radius:10px;font-weight:bold;font-size:14px}
-.card .adminBtns{margin-top:8px;display:flex;gap:5px}
-.card .adminBtns button{flex:1;border:0;padding:7px;border-radius:8px;color:#fff;font-size:12px;font-weight:bold}
-#adminPanel{display:none;background:#000;color:#fff;padding:20px;margin:15px;border-radius:15px;border:3px solid #ffcc00}
-#adminPanel h2{color:#ffcc00;font-size:20px}
-#adminPanel p{font-size:13px;color:#aaa;margin:6px 0 12px}
-#adminPanel input{width:100%;padding:12px;margin:5px 0;border-radius:10px;border:0;font-size:14px}
-#adminPanel button{padding:12px 18px;border:0;border-radius:10px;font-weight:bold;color:#fff;margin:5px 5px 0 0;font-size:14px}
-footer{background:#111;color:#aaa;text-align:center;padding:20px;font-size:13px;line-height:1.7;margin-top:10px}
-footer a{color:#25D366;text-decoration:none;font-weight:bold}
+header{background:#000;color:#fff;text-align:center;padding:20px 10px;position:relative}
+header h1{font-size:32px;letter-spacing:2px}
+header h1 span{color:#ff2a2a}
+header p{color:#aaa;font-size:13px;letter-spacing:3px;margin-top:5px}
+#adminBtn{position:absolute;top:15px;right:15px;background:#333;color:#fff;border:1px solid #555;padding:7px 12px;border-radius:20px;cursor:pointer;font-size:12px}
+.search-box{padding:15px}
+.search-box input{width:100%;padding:13px 15px;border-radius:30px;border:1px solid #ddd;outline:none;font-size:15px}
+h2{padding:0 15px 10px;font-size:22px}
+#products{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:0 15px 20px}
+.card{background:#fff;border-radius:15px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,0.08)}
+.card img{width:100%;height:220px;object-fit:cover;background:#eee;display:block}
+.card-body{padding:12px}
+.card-body h3{font-size:15px;line-height:1.3;min-height:38px}
+.card-body .cat{color:#888;font-size:13px;margin:5px 0}
+.card-body .price{font-weight:bold;font-size:17px;margin-bottom:10px}
+.wa-btn{display:block;background:#22c55e;color:#fff;text-align:center;padding:11px;border-radius:10px;text-decoration:none;font-weight:bold;font-size:14px}
+.admin-btns{display:flex;gap:8px;margin-top:8px}
+.edit-btn{flex:1;background:#ff8a00;color:#fff;border:none;padding:9px;border-radius:8px;cursor:pointer;font-weight:bold}
+.del-btn{flex:1;background:#ff2a2a;color:#fff;border:none;padding:9px;border-radius:8px;cursor:pointer;font-weight:bold}
+footer{background:#000;color:#fff;text-align:center;padding:20px 10px;font-size:14px;line-height:1.7}
+footer b{color:#22c55e}
+/* Admin Panel */
+#adminPanel{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);z-index:999;overflow:auto}
+.admin-box{background:#fff;margin:20px auto;width:92%;max-width:450px;border-radius:15px;padding:20px}
+.admin-box h3{text-align:center;margin-bottom:15px}
+.admin-box label{font-size:13px;font-weight:bold;display:block;margin:12px 0 5px}
+.admin-box input,.admin-box select{width:100%;padding:12px;border:1px solid #ddd;border-radius:10px;font-size:15px;outline:none}
+.gallery-btn{display:block;background:#111;color:#fff;text-align:center;padding:13px;border-radius:10px;cursor:pointer;font-weight:bold;margin-top:5px}
+#previewImg{width:100%;height:220px;object-fit:cover;border-radius:10px;margin-top:10px;display:none;background:#eee}
+.add-btn{width:100%;background:#22c55e;color:#fff;border:none;padding:14px;border-radius:10px;font-weight:bold;font-size:16px;margin-top:15px;cursor:pointer}
+.close-btn{width:100%;background:#eee;border:none;padding:12px;border-radius:10px;margin-top:10px;cursor:pointer}
+@media(max-width:500px){#products{grid-template-columns:1fr 1fr}.card img{height:180px}}
 </style>
 </head>
 <body>
 
-<header id="logoArea">
+<header>
 <h1>AK <span>CLOTHING</span></h1>
 <p>STYLE THAT FEELS LIKE YOU</p>
+<button id="adminBtn" onclick="openAdmin()">⚙️ Admin</button>
 </header>
 
-<div class="hero">
-<h2>New Collection<br><span>Shop Directly From Website</span></h2>
-<p>Premium T-Shirts, Pants & Trendy Shorts - Cash on Delivery All Over Pakistan</p>
-<button onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">SHOP NOW ↓</button>
+<div class="search-box">
+<input type="text" id="searchInput" placeholder="🔍 Search - T-Shirt, Pant..." oninput="renderProducts()">
 </div>
 
-<!-- ADMIN PANEL - HIDDEN FOR CUSTOMERS -->
-<div id="adminPanel">
-<h2>👑 ADMIN PANEL - AK ONLY</h2>
-<p>This is only visible to you. Customers will never see this.</p>
-<input id="pName" placeholder="Product Name - Example: Classic Black T-Shirt">
-<input id="pCat" placeholder="Category - Example: T-Shirt">
-<input id="pPrice" placeholder="Price - Example: 1499" type="number">
-<input id="pImg" placeholder="Photo Link - https://...">
-<button onclick="addProduct()" style="background:#25D366;">➕ ADD PRODUCT</button>
-<button onclick="closeAdmin()" style="background:#333;">❌ CLOSE</button>
-</div>
-
-<div id="searchBox"><input id="search" placeholder="🔍 Search - T-Shirt, Pant..." oninput="showProducts()"></div>
-<div class="secTitle">🛍️ Our Products</div>
+<h2>🛍️ Our Products</h2>
 <div id="products"></div>
 
-<footer>© 2026 AK Clothing | Lahore, Pakistan<br>Cash On Delivery All Over Pakistan 🚚<br>Order On WhatsApp: <a href="https://wa.me/923086625610">0308 6625610</a></footer>
+<footer>
+© 2026 AK Clothing | Lahore, Pakistan<br>
+Cash On Delivery All Over Pakistan 🚚<br>
+Order On WhatsApp: <b>0308 6625610</b>
+</footer>
+
+<!-- ADMIN PANEL -->
+<div id="adminPanel">
+<div class="admin-box">
+<h3>Admin Panel - Add Product</h3>
+
+<label>Product Name</label>
+<input type="text" id="pName" placeholder="Ex: JUPITER Hoodie">
+
+<label>Category</label>
+<select id="pCat">
+<option>Hoodie</option>
+<option>T-Shirt</option>
+<option>Pant</option>
+<option>Shirt</option>
+<option>Track Suit</option>
+</select>
+
+<label>Price (Rs.)</label>
+<input type="number" id="pPrice" placeholder="Ex: 2499">
+
+<label>Product Photo</label>
+<label class="gallery-btn" for="pImage">📸 Gallery Se Photo Chuno</label>
+<input type="file" id="pImage" accept="image/*" style="display:none" onchange="previewPhoto(event)">
+<img id="previewImg">
+
+<button class="add-btn" onclick="saveProduct()">+ ADD PRODUCT</button>
+<button class="close-btn" onclick="closeAdmin()">X CLOSE</button>
+</div>
+</div>
 
 <script>
-let products = JSON.parse(localStorage.getItem('ak_products_v3')) || [
-{name:"Classic Black T-Shirt", cat:"T-Shirt", price:1499, img:"https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400"},
-{name:"White Premium T-Shirt", cat:"T-Shirt", price:1399, img:"https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=400"},
-{name:"Stylish Hoodie", cat:"Hoodie", price:1999, img:"https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=400"},
-{name:"Denim Jeans", cat:"Pants", price:2499, img:"https://images.unsplash.com/photo-1542272604-787c3835535d?w=400"}
-];
-let isAdmin = false;
-function saveProducts(){ localStorage.setItem('ak_products_v3', JSON.stringify(products)); }
-function showProducts(){
-  let q = document.getElementById('search').value.toLowerCase();
-  let box = document.getElementById('products');
-  box.innerHTML = '';
-  products.forEach((p,i)=>{
-    if(p.name.toLowerCase().includes(q) || p.cat.toLowerCase().includes(q)){
-      let msg = "Hello AK Clothing! I want to order this: " + p.name + " - Rs." + p.price + " - Size: M - My Address: ";
-      let waLink = "https://wa.me/923086625610?text=" + encodeURIComponent(msg);
-      box.innerHTML += '<div class="card"><img src="'+p.img+'"><div class="in"><h3>'+p.name+'</h3><div class="cat">'+p.cat+'</div><div class="price">Rs. '+p.price+'</div><a class="buy" href="'+waLink+'" target="_blank">🟢 ORDER ON WHATSAPP</a>' + (isAdmin ? '<div class="adminBtns"><button onclick="editProduct('+i+')" style="background:#ff6b00;">✏️ EDIT</button><button onclick="deleteProduct('+i+')" style="background:red;">🗑️ DELETE</button></div>' : '') + '</div></div>';
-    }
-  });
-  if(box.innerHTML === ''){ box.innerHTML = '<p style="padding:30px;text-align:center;">No product found</p>'; }
+let products = JSON.parse(localStorage.getItem('ak_products') || 'null');
+if(!products){
+  products = [
+    {name:"JUPITER Hoodie - Black Techwear", cat:"Hoodie", price:2499, img:"https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=800"}
+  ];
+  localStorage.setItem('ak_products', JSON.stringify(products));
 }
-function addProduct(){
-  let n = document.getElementById('pName').value.trim();
-  let c = document.getElementById('pCat').value.trim() || 'T-Shirt';
-  let pr = document.getElementById('pPrice').value;
-  let im = document.getElementById('pImg').value.trim();
-  if(!n || !pr){ alert('Please enter Name and Price!'); return; }
-  products.push({name:n, cat:c, price:pr, img: im || 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400'});
-  saveProducts(); showProducts();
-  document.getElementById('pName').value=''; document.getElementById('pCat').value=''; document.getElementById('pPrice').value=''; document.getElementById('pImg').value='';
-  alert('✅ Product Added Successfully!');
-}
-function deleteProduct(i){ if(confirm('Do you want to delete this product?')){ products.splice(i,1); saveProducts(); showProducts(); } }
-function editProduct(i){ let np = prompt('Enter New Price:', products[i].price); if(np){ products[i].price = np; saveProducts(); showProducts(); alert('✅ Price Updated Successfully!'); } }
-function closeAdmin(){ document.getElementById('adminPanel').style.display = 'none'; }
+let tempImg = "";
+let editIndex = -1;
+
 function openAdmin(){
-  isAdmin = true;
-  document.getElementById('adminPanel').style.display = 'block';
-  document.getElementById('adminPanel').scrollIntoView({behavior:'smooth'});
-  showProducts();
-  alert('👑 Welcome Admin AK! Admin Panel is ON');
+  document.getElementById('adminPanel').style.display='block';
 }
-let params = new URLSearchParams(window.location.search);
-if(params.get('admin') === 'AK786'){ openAdmin(); }
-let taps = 0;
-document.getElementById('logoArea').addEventListener('click', ()=>{
-  taps++;
-  if(taps === 5){
-    taps = 0;
-    let pass = prompt('Enter Admin Password:');
-    if(pass === 'AK786'){ openAdmin(); }
-    else if(pass !== null){ alert('Wrong Password!'); }
+function closeAdmin(){
+  document.getElementById('adminPanel').style.display='none';
+  document.getElementById('pName').value='';
+  document.getElementById('pPrice').value='';
+  document.getElementById('previewImg').style.display='none';
+  tempImg="";
+  editIndex=-1;
+}
+function previewPhoto(e){
+  let file = e.target.files[0];
+  if(!file) return;
+  let reader = new FileReader();
+  reader.onload = function(ev){
+    tempImg = ev.target.result;
+    let img = document.getElementById('previewImg');
+    img.src = tempImg;
+    img.style.display='block';
+  };
+  reader.readAsDataURL(file);
+}
+function saveProduct(){
+  let name = document.getElementById('pName').value.trim();
+  let cat = document.getElementById('pCat').value;
+  let price = document.getElementById('pPrice').value.trim();
+  if(!name){alert("Pehle Product ka Naam likho");return;}
+  if(!price){alert("Price likho");return;}
+  if(!tempImg && editIndex===-1){alert("Pehle Gallery se Photo Chuno");return;}
+  if(editIndex===-1){
+    products.push({name:name, cat:cat, price:price, img:tempImg});
+  } else {
+    products[editIndex].name=name;
+    products[editIndex].cat=cat;
+    products[editIndex].price=price;
+    if(tempImg) products[editIndex].img=tempImg;
   }
-  setTimeout(()=>{ taps = 0; }, 3000);
-});
-showProducts();
+  localStorage.setItem('ak_products', JSON.stringify(products));
+  closeAdmin();
+  renderProducts();
+  alert("Product Save Ho Gaya! ✅");
+}
+function renderProducts(){
+  let q = document.getElementById('searchInput').value.toLowerCase();
+  let box = document.getElementById('products');
+  box.innerHTML='';
+  products.forEach((p,i)=>{
+    if(q && !p.name.toLowerCase().includes(q) && !p.cat.toLowerCase().includes(q)) return;
+    let msg = encodeURIComponent("Assalam-o-Alaikum! Mujhe ye product chahiye:\n\n" + p.name + "\nPrice: Rs. " + p.price);
+    box.innerHTML += `
+    <div class="card">
+      <img src="${p.img}" onerror="this.src='https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=800'">
+      <div class="card-body">
+        <h3>${p.name}</h3>
+        <div class="cat">${p.cat}</div>
+        <div class="price">Rs. ${p.price}</div>
+        <a class="wa-btn" target="_blank" href="https://wa.me/923086625610?text=${msg}">🟢 ORDER ON WHATSAPP</a>
+        <div class="admin-btns">
+          <button class="edit-btn" onclick="editProduct(${i})">✏️ EDIT</button>
+          <button class="del-btn" onclick="deleteProduct(${i})">🗑️ DELETE</button>
+        </div>
+      </div>
+    </div>`;
+  });
+  if(box.innerHTML==='') box.innerHTML='<p style="padding:10px">No product found</p>';
+}
+function editProduct(i){
+  editIndex=i;
+  document.getElementById('pName').value=products[i].name;
+  document.getElementById('pCat').value=products[i].cat;
+  document.getElementById('pPrice').value=products[i].price;
+  tempImg="";
+  let img=document.getElementById('previewImg');
+  img.src=products[i].img;
+  img.style.display='block';
+  openAdmin();
+}
+function deleteProduct(i){
+  if(confirm("Delete kar dun?")){
+    products.splice(i,1);
+    localStorage.setItem('ak_products', JSON.stringify(products));
+    renderProducts();
+  }
+}
+renderProducts();
 </script>
 </body>
 </html>
