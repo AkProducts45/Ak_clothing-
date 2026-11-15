@@ -26,7 +26,7 @@ header p{font-size:11px;color:#aaa;margin-top:4px;letter-spacing:1px}
 .card h3{font-size:14px;margin-bottom:4px}
 .card .cat{font-size:12px;color:#888}
 .card .price{font-weight:bold;font-size:16px;margin:6px 0}
-.card .buy{width:100%;background:#25D366;color:#fff;border:0;padding:10px;border-radius:10px;font-weight:bold;font-size:14px}
+.card .buy{display:block;text-align:center;background:#25D366;color:#fff;text-decoration:none;padding:11px;border-radius:10px;font-weight:bold;font-size:14px}
 .card .adminBtns{margin-top:8px;display:flex;gap:5px}
 .card .adminBtns button{flex:1;border:0;padding:7px;border-radius:8px;color:#fff;font-size:12px;font-weight:bold}
 #adminPanel{display:none;background:#000;color:#fff;padding:20px;margin:15px;border-radius:15px;border:3px solid #ffcc00}
@@ -36,8 +36,6 @@ header p{font-size:11px;color:#aaa;margin-top:4px;letter-spacing:1px}
 #adminPanel button{padding:12px 18px;border:0;border-radius:10px;font-weight:bold;color:#fff;margin:5px 5px 0 0;font-size:14px}
 footer{background:#111;color:#aaa;text-align:center;padding:20px;font-size:13px;line-height:1.7;margin-top:10px}
 footer a{color:#25D366;text-decoration:none;font-weight:bold}
-#cartBtn{position:fixed;bottom:20px;right:20px;background:#ffcc00;border:0;width:60px;height:60px;border-radius:50%;font-size:26px;z-index:200;box-shadow:0 5px 20px rgba(0,0,0,.3)}
-#cartCount{position:fixed;bottom:64px;right:20px;background:red;color:#fff;width:22px;height:22px;border-radius:50%;font-size:12px;line-height:22px;text-align:center;z-index:201;display:none}
 </style>
 </head>
 <body>
@@ -53,7 +51,7 @@ footer a{color:#25D366;text-decoration:none;font-weight:bold}
 <button onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">SHOP NOW ↓</button>
 </div>
 
-<!-- ADMIN PANEL - DEFAULT HIDDEN -->
+<!-- ADMIN PANEL - KISI KO NAHI DIKHEGA -->
 <div id="adminPanel">
 <h2>👑 ADMIN PANEL - AK ONLY</h2>
 <p>Ye sirf tujhe dikh raha hai. Customer ko ye kabhi nahi dikhega.</p>
@@ -69,22 +67,18 @@ footer a{color:#25D366;text-decoration:none;font-weight:bold}
 <div class="secTitle">🛍️ Our Products</div>
 <div id="products"></div>
 
-<button id="cartBtn" onclick="showCart()">🛒</button>
-<div id="cartCount">0</div>
-
 <footer>© 2026 AK Clothing | Lahore, Pakistan<br>Cash On Delivery All Pakistan 🚚<br>WhatsApp Pe Order Karo: <a href="https://wa.me/923086625610">0308 6625610</a></footer>
 
 <script>
-let products = JSON.parse(localStorage.getItem('ak_products_v2')) || [
+let products = JSON.parse(localStorage.getItem('ak_products_v3')) || [
 {name:"Classic Black T-Shirt", cat:"T-Shirt", price:1499, img:"https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400"},
 {name:"White Premium T-Shirt", cat:"T-Shirt", price:1399, img:"https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=400"},
 {name:"Stylish Hoodie", cat:"Hoodie", price:1999, img:"https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=400"},
 {name:"Denim Jeans", cat:"Pants", price:2499, img:"https://images.unsplash.com/photo-1542272604-787c3835535d?w=400"}
 ];
-let cart = [];
 let isAdmin = false;
 
-function saveProducts(){ localStorage.setItem('ak_products_v2', JSON.stringify(products)); }
+function saveProducts(){ localStorage.setItem('ak_products_v3', JSON.stringify(products)); }
 
 function showProducts(){
   let q = document.getElementById('search').value.toLowerCase();
@@ -92,7 +86,10 @@ function showProducts(){
   box.innerHTML = '';
   products.forEach((p,i)=>{
     if(p.name.toLowerCase().includes(q) || p.cat.toLowerCase().includes(q)){
-      box.innerHTML += '<div class="card"><img src="'+p.img+'"><div class="in"><h3>'+p.name+'</h3><div class="cat">'+p.cat+'</div><div class="price">Rs. '+p.price+'</div><button class="buy" onclick="addToCart('+i+')">Order on WhatsApp</button>' + (isAdmin ? '<div class="adminBtns"><button onclick="editProduct('+i+')" style="background:#ff6b00;">✏️ EDIT</button><button onclick="deleteProduct('+i+')" style="background:red;">🗑️ DELETE</button></div>' : '') + '</div></div>';
+      // DIRECT WHATSAPP LINK - CLICK KARTE HI TERE WHATSAPP PE JAYEGA
+      let msg = "Salam AK Clothing! Mujhe ye order karna hai: " + p.name + " - Rs." + p.price + " - Size: M - Mera Address: ";
+      let waLink = "https://wa.me/923086625610?text=" + encodeURIComponent(msg);
+      box.innerHTML += '<div class="card"><img src="'+p.img+'"><div class="in"><h3>'+p.name+'</h3><div class="cat">'+p.cat+'</div><div class="price">Rs. '+p.price+'</div><a class="buy" href="'+waLink+'" target="_blank">🟢 ORDER ON WHATSAPP</a>' + (isAdmin ? '<div class="adminBtns"><button onclick="editProduct('+i+')" style="background:#ff6b00;">✏️ EDIT</button><button onclick="deleteProduct('+i+')" style="background:red;">🗑️ DELETE</button></div>' : '') + '</div></div>';
     }
   });
   if(box.innerHTML === ''){ box.innerHTML = '<p style="padding:30px;text-align:center;">Koi product nahi mila</p>'; }
@@ -129,23 +126,7 @@ function openAdmin(){
   alert('👑 Welcome Admin AK! Admin Panel ON hai');
 }
 
-// ORDER - TERA NUMBER LAGA HUA HAI 0308 6625610
-function addToCart(i){
-  cart.push(products[i]);
-  let cc = document.getElementById('cartCount');
-  cc.style.display = 'block'; cc.textContent = cart.length;
-  let msg = 'Salam AK Clothing! Mujhe ye order karna hai: ' + products[i].name + ' - Rs.' + products[i].price + ' (Size: M) - Address: ';
-  window.open('https://wa.me/923086625610?text=' + encodeURIComponent(msg), '_blank');
-}
-
-function showCart(){
-  if(cart.length === 0){ alert('Cart khaali hai!'); return; }
-  let total = 0; let txt = 'Tera Cart:\n';
-  cart.forEach(c=>{ txt += c.name + ' - Rs.' + c.price + '\n'; total += parseInt(c.price); });
-  alert(txt + '\nTotal: Rs.' + total);
-}
-
-// SECRET ADMIN LOGIC
+// SECRET ADMIN
 let params = new URLSearchParams(window.location.search);
 if(params.get('admin') === 'AK786'){ openAdmin(); }
 
