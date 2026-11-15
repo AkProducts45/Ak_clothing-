@@ -1,95 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AK ALI KHAN - Clothing</title>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AK ALI KHAN - Premium Clothing</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
-header{position:sticky;top:0;background:#fff;padding:12px 15px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #eee;z-index:10}
-.logo{font-weight:900;font-size:22px} .logo span{color:#c9a227}
-.topbar{text-align:center;background:#000;color:#fff;font-size:12px;padding:6px}
+body{background:#fff;padding-bottom:70px}
+.announce{background:#000;color:#fff;text-align:center;font-size:12px;padding:7px}
+header{position:sticky;top:0;background:#fff;display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border-bottom:1px solid #eee;z-index:20}
+.logo{font-weight:900;font-size:21px;letter-spacing:1px} .logo span{color:#c9a227}
+.icons{font-size:19px;display:flex;gap:14px}
+.hero{position:relative} .hero img{width:100%;height:320px;object-fit:cover;display:block}
+.hero-text{position:absolute;bottom:20px;left:15px;color:#fff} .hero-text h1{font-size:28px;line-height:1.1} .hero-text p{font-size:13px;margin:6px 0}
+.shop-btn{background:#fff;color:#000;padding:10px 18px;border:none;border-radius:25px;font-weight:700;margin-top:8px}
+.cat{display:flex;gap:10px;overflow:auto;padding:12px} .cat div{min-width:90px;text-align:center;font-size:12px} .cat img{width:90px;height:90px;border-radius:50%;object-fit:cover}
+.sec{padding:5px 12px;display:flex;justify-content:space-between;align-items:center} .sec h3{font-size:18px}
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:12px}
-.card{border:1px solid #eee;border-radius:10px;overflow:hidden;background:#fff}
-.card img{width:100%;height:220px;object-fit:cover}
-.card-body{padding:10px}
-.badge{background:#ff4d00;color:#fff;font-size:11px;padding:3px 6px;border-radius:4px;position:absolute;margin:8px}
-.old{color:#888;text-decoration:line-through;font-size:13px} .new{color:#d00;font-weight:800}
-.colors{margin:8px 0;display:flex;gap:8px}
-.dot{width:22px;height:22px;border-radius:50%;border:2px solid #ccc;cursor:pointer}
-.dot.active{border:2px solid #000}
-.btn{width:100%;padding:10px;border-radius:20px;border:1px solid #00838f;background:#fff;color:#00838f;margin-top:6px;cursor:pointer}
-.btn-fill{background:#00838f;color:#fff}
-.bottom{position:fixed;bottom:0;left:0;right:0;background:#fff;display:flex;justify-content:space-around;padding:10px;border-top:1px solid #eee}
-#adminPanel{display:none;padding:15px;background:#fffbe6}
-input,select{width:100%;padding:10px;margin:6px 0;border:1px solid #ddd;border-radius:8px}
-.thumbs{display:flex;gap:5px;margin-top:5px} .thumbs img{width:45px;height:45px;object-fit:cover;border:2px solid #eee;cursor:pointer}
+.card{border:1px solid #eee;border-radius:12px;overflow:hidden;position:relative;background:#fff}
+.card img{width:100%;height:230px;object-fit:cover}
+.badge{position:absolute;top:8px;left:8px;background:#ff4d00;color:#fff;font-size:11px;padding:4px 7px;border-radius:5px}
+.heart{position:absolute;top:8px;right:8px;background:#fff;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+.body{padding:10px} .old{color:#999;text-decoration:line-through;font-size:12px} .new{color:#d00;font-weight:800;font-size:15px}
+.dots{display:flex;gap:7px;margin:8px 0} .dot{width:20px;height:20px;border-radius:50%;border:2px solid #ccc;cursor:pointer} .dot.on{border-color:#000}
+.btn{width:100%;padding:9px;border:1px solid #00838f;border-radius:20px;background:#fff;color:#00838f;margin-top:5px;cursor:pointer}
+.btn2{background:#00838f;color:#fff}
+.thumbs{display:flex;gap:5px} .thumbs img{width:42px;height:42px;border-radius:6px;object-fit:cover;border:1px solid #ddd;cursor:pointer}
+.bottom{position:fixed;bottom:0;left:0;right:0;background:#fff;display:flex;justify-content:space-around;padding:11px 0;border-top:1px solid #eee;font-size:12px;z-index:20}
+#adminBox{display:none;background:#fffbe6;padding:15px;border:2px dashed #c9a227;margin:12px;border-radius:10px}
+input{width:100%;padding:10px;margin:6px 0;border:1px solid #ddd;border-radius:8px}
 </style>
 </head>
 <body>
-<div class="topbar">AK ALI KHAN | Premium Hoodies in Pakistan | COD Available</div>
-<header><div class="logo">AK <span>ALI KHAN</span></div><div>🔍 🛒 <span id="cartCount">0</span></div></header>
+<div class="announce">FREE DELIVERY ON ORDERS OVER Rs. 3000 | COD ALL PAKISTAN</div>
+<header><div class="logo">AK <span>ALI KHAN</span></div><div class="icons">🔍 ❤️ 🛒 <b id="cartC">0</b></div></header>
 
-<div id="adminPanel">
-<h2>Admin Panel - Sirf Aap Ke Liye</h2>
-<p>Yahan se Aap product add / edit kar sakte hain.</p>
-<input id="pName" placeholder="Product Name - jaise AK Premium Hoodie">
-<input id="pOld" type="number" placeholder="Purani Price - 2999">
-<input id="pNew" type="number" placeholder="Sale Price - 2499">
-<input id="pImg1" placeholder="Pic 1 ka Link">
-<input id="pImg2" placeholder="Pic 2 ka Link - Black Colour">
-<input id="pImg3" placeholder="Pic 3 ka Link - White Colour">
-<button class="btn btn-fill" onclick="addProduct()">+ Product Add Karein</button>
-<p style="font-size:12px;margin-top:8px">Customer ko ye panel nazar nahi aayega. Aap ka link #admin wala hai.</p>
+<div id="adminBox">
+<h3>Admin Panel - Sirf Aap Ke Liye</h3>
+<input id="n" placeholder="Product Name">
+<input id="o" type="number" placeholder="Purani Price - 2999">
+<input id="nw" type="number" placeholder="Sale Price - 2499">
+<input id="i1" placeholder="Pic 1 Link">
+<input id="i2" placeholder="Pic 2 Link - Black">
+<input id="i3" placeholder="Pic 3 Link - White">
+<button class="btn btn2" onclick="addP()">+ Add Product</button>
 </div>
 
-<div style="text-align:center;padding:15px"><h2>Products</h2></div>
+<div class="hero"><img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=900"><div class="hero-text"><p>NEW WINTER COLLECTION</p><h1>Premium Hoodies<br>In Pakistan</h1><button class="shop-btn" onclick="document.getElementById('grid').scrollIntoView()">Shop Now →</button></div></div>
+
+<div class="cat">
+<div><img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=200"><br>Hoodies</div>
+<div><img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=200"><br>T-Shirts</div>
+<div><img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=200"><br>Jackets</div>
+<div><img src="https://images.unsplash.com/photo-1542272604-787c3835535d?w=200"><br>Jeans</div>
+</div>
+
+<div class="sec"><h3>Best Selling Products</h3><span style="color:#00838f">View All →</span></div>
 <div class="grid" id="grid"></div>
 
-<div style="height:70px"></div>
-<div class="bottom"><div>Shop</div><div>❤️ Wishlist</div><div>🛒 Cart</div><div>👤 Account</div><div>🔍 Search</div></div>
+<div class="bottom"><div>🏠<br>Shop</div><div>❤️<br>Wishlist</div><div>🛒<br>Cart</div><div>👤<br>Account</div><div>🔍<br>Search</div></div>
 
 <script>
-let products = JSON.parse(localStorage.getItem('ak_products')) || [
- {name:"AK Premium Hoodie - Black Edition",old:2999,new:2499,imgBlack:"https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=600",imgWhite:"https://images.unsplash.com/photo-1578681994506-b8f463449011?w=600",imgs:["https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=600","https://images.unsplash.com/photo-1578681994506-b8f463449011?w=600"]},
- {name:"AK JUPITER Hoodie",old:3499,new:2799,imgBlack:"https://images.unsplash.com/photo-1509942774463-acf339cf87d5?w=600",imgWhite:"https://images.unsplash.com/photo-1611312449408-fcece27cdbb7?w=600",imgs:["https://images.unsplash.com/photo-1509942774463-acf339cf87d5?w=600","https://images.unsplash.com/photo-1611312449408-fcece27cdbb7?w=600"]}
+let isAdmin = location.hash==='#admin';
+if(isAdmin) document.getElementById('adminBox').style.display='block';
+let products = JSON.parse(localStorage.getItem('ak2')) || [
+{name:"AK Premium Hoodie - Black Edition",old:2999,new:2499,black:"https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=600",white:"https://images.unsplash.com/photo-1578681994506-b8f463449011?w=600",imgs:["https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=600","https://images.unsplash.com/photo-1578681994506-b8f463449011?w=600"]},
+{name:"AK JUPITER Hoodie",old:3499,new:2799,black:"https://images.unsplash.com/photo-1509942774463-acf339cf87d5?w=600",white:"https://images.unsplash.com/photo-1611312449408-fcece27cdbb7?w=600",imgs:["https://images.unsplash.com/photo-1509942774463-acf339cf87d5?w=600","https://images.unsplash.com/photo-1611312449408-fcece27cdbb7?w=600"]},
+{name:"AK Oversized Hoodie",old:2999,new:2299,black:"https://images.unsplash.com/photo-1578681994506-b8f463449011?w=600",white:"https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=600",imgs:["https://images.unsplash.com/photo-1578681994506-b8f463449011?w=600","https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=600"]},
+{name:"AK Winter Premium Hoodie",old:3999,new:3299,black:"https://images.unsplash.com/photo-1611312449408-fcece27cdbb7?w=600",white:"https://images.unsplash.com/photo-1509942774463-acf339cf87d5?w=600",imgs:["https://images.unsplash.com/photo-1611312449408-fcece27cdbb7?w=600","https://images.unsplash.com/photo-1509942774463-acf339cf87d5?w=600"]}
 ];
 let cart=0;
 function render(){
- let g=document.getElementById('grid'); g.innerHTML='';
- products.forEach((p,i)=>{
-  let disc=Math.round((1-p.new/p.old)*100);
-  g.innerHTML+=`<div class="card">
-   <div style="position:relative"><span class="badge">-${disc}%</span>
-   <img id="main${i}" src="${p.imgs[0]}"></div>
-   <div class="card-body">
-   <b>${p.name}</b><br><span class="old">Rs.${p.old}.00</span> <span class="new">Rs.${p.new}.00</span>
-   <div class="colors">
-    <div class="dot active" style="background:#000" onclick="changeColor(${i},'black',this)"></div>
-    <div class="dot" style="background:#fff" onclick="changeColor(${i},'white',this)"></div>
-   </div>
-   <div class="thumbs">${p.imgs.map(u=>`<img src="${u}" onclick="document.getElementById('main${i}').src='${u}'">`).join('')}</div>
-   <button class="btn" onclick="alert('${p.name} Quick View')">Quick View</button>
-   <button class="btn btn-fill" onclick="addToCart()">Quick Shop - Add to Cart</button>
-   ${isAdmin?`<button class="btn" style="color:red" onclick="deleteP(${i})">Admin: Delete</button>`:''}
-   </div></div>`;
- });
+ document.getElementById('grid').innerHTML=products.map((p,i)=>{
+ let d=Math.round((1-p.new/p.old)*100);
+ return `<div class="card"><span class="badge">-${d}%</span><span class="heart">♡</span>
+ <img id="m${i}" src="${p.imgs[0]}">
+ <div class="body"><b>${p.name}</b><br><span class="old">Rs.${p.old}.00</span> <span class="new">Rs.${p.new}.00</span>
+ <div class="dots"><div class="dot on" style="background:#000" onclick="chg(${i},'black',this)"></div><div class="dot" style="background:#fff" onclick="chg(${i},'white',this)"></div></div>
+ <div class="thumbs">${p.imgs.map(u=>`<img src="${u}" onclick="document.getElementById('m${i}').src='${u}'">`).join('')}</div>
+ <button class="btn" onclick="alert('${p.name}')">Quick View</button>
+ <button class="btn btn2" onclick="addC()">Quick Shop</button>
+ ${isAdmin?`<button class="btn" style="color:red" onclick="del(${i})">Admin: Delete</button>`:''}
+ </div></div>`}).join('');
 }
-function changeColor(i,color,el){
- document.querySelectorAll('.dot').forEach(d=>d.classList.remove('active')); el.classList.add('active');
- let p=products[i];
- document.getElementById('main'+i).src = color==='black' ? p.imgBlack : p.imgWhite;
-}
-function addToCart(){cart++; document.getElementById('cartCount').innerText=cart; alert('Cart me add ho gaya!')}
-function addProduct(){
- let p={name:document.getElementById('pName').value, old:+document.getElementById('pOld').value, new:+document.getElementById('pNew').value,
- imgBlack:document.getElementById('pImg2').value, imgWhite:document.getElementById('pImg3').value,
- imgs:[document.getElementById('pImg1').value, document.getElementById('pImg2').value, document.getElementById('pImg3').value]};
- products.push(p); localStorage.setItem('ak_products',JSON.stringify(products)); render(); alert('Product add ho gaya!');
-}
-function deleteP(i){products.splice(i,1); localStorage.setItem('ak_products',JSON.stringify(products)); render();}
-let isAdmin = location.hash==='#admin';
-if(isAdmin) document.getElementById('adminPanel').style.display='block';
+function chg(i,c,el){el.parentElement.querySelectorAll('.dot').forEach(d=>d.classList.remove('on'));el.classList.add('on');document.getElementById('m'+i).src = c==='black'?products[i].black:products[i].white;}
+function addC(){cart++;document.getElementById('cartC').innerText=cart;alert('Cart me add ho gaya!')}
+function addP(){let p={name:document.getElementById('n').value,old:+document.getElementById('o').value,new:+document.getElementById('nw').value,black:document.getElementById('i2').value,white:document.getElementById('i3').value,imgs:[document.getElementById('i1').value,document.getElementById('i2').value,document.getElementById('i3').value]};products.push(p);localStorage.setItem('ak2',JSON.stringify(products));render();alert('Add ho gaya!')}
+function del(i){products.splice(i,1);localStorage.setItem('ak2',JSON.stringify(products));render();}
 render();
 </script>
 </body>
