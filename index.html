@@ -11,7 +11,7 @@ header{background:#000;color:#fff;text-align:center;padding:20px 10px;position:r
 header h1{font-size:32px;letter-spacing:2px}
 header h1 span{color:#ff2a2a}
 header p{color:#aaa;font-size:13px;letter-spacing:3px;margin-top:5px}
-#adminBtn{position:absolute;top:15px;right:15px;background:#333;color:#fff;border:1px solid #555;padding:7px 12px;border-radius:20px;cursor:pointer;font-size:12px}
+#adminBtn{display:none;position:absolute;top:15px;right:15px;background:#333;color:#fff;border:1px solid #555;padding:7px 12px;border-radius:20px;cursor:pointer;font-size:12px}
 .search-box{padding:15px}
 .search-box input{width:100%;padding:13px 15px;border-radius:30px;border:1px solid #ddd;outline:none;font-size:15px}
 h2{padding:0 15px 10px;font-size:22px}
@@ -37,7 +37,6 @@ footer b{color:#22c55e}
 #previewImg{width:100%;height:220px;object-fit:cover;border-radius:10px;margin-top:10px;display:none;background:#eee}
 .add-btn{width:100%;background:#22c55e;color:#fff;border:none;padding:14px;border-radius:10px;font-weight:bold;font-size:16px;margin-top:15px;cursor:pointer}
 .close-btn{width:100%;background:#eee;border:none;padding:12px;border-radius:10px;margin-top:10px;cursor:pointer}
-#logoutBtn{display:none;background:#ff2a2a;color:#fff;border:none;padding:7px 12px;border-radius:20px;cursor:pointer;font-size:12px;margin-top:8px}
 @media(max-width:500px){#products{grid-template-columns:1fr 1fr}.card img{height:180px}}
 </style>
 </head>
@@ -45,8 +44,7 @@ footer b{color:#22c55e}
 <header>
 <h1>AK <span>CLOTHING</span></h1>
 <p>STYLE THAT FEELS LIKE YOU</p>
-<button id="adminBtn" onclick="askPassword()">⚙️ Admin</button>
-<button id="logoutBtn" onclick="logoutAdmin()">Logout</button>
+<button id="adminBtn" onclick="openAdmin()">⚙️ Admin</button>
 </header>
 <div class="search-box">
 <input type="text" id="searchInput" placeholder="🔍 Search - T-Shirt, Pant..." oninput="renderProducts()">
@@ -76,8 +74,12 @@ Order On WhatsApp: <b>0308 6625610</b>
 </div>
 </div>
 <script>
-let ADMIN_PASS = "AK123";
-let isAdmin = sessionStorage.getItem('ak_admin') === 'yes';
+// SIRF ADMIN LINK SE ADMIN KHULEGA
+let params = new URLSearchParams(window.location.search);
+let isAdmin = params.get('admin') === 'AK123';
+if(isAdmin){
+  document.getElementById('adminBtn').style.display = 'block';
+}
 let products = JSON.parse(localStorage.getItem('ak_products') || 'null');
 if(!products){
   products = [{name:"JUPITER Hoodie - Black Techwear", cat:"Hoodie", price:2499, img:"https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=800"}];
@@ -85,28 +87,7 @@ if(!products){
 }
 let tempImg = "";
 let editIndex = -1;
-function askPassword(){
-  if(isAdmin){ openAdmin(); return; }
-  let p = prompt("Admin Password Dalain:");
-  if(p === ADMIN_PASS){
-    isAdmin = true;
-    sessionStorage.setItem('ak_admin','yes');
-    alert("Welcome Boss! ✅ Ab aap Admin hain.");
-    document.getElementById('logoutBtn').style.display='inline-block';
-    renderProducts();
-    openAdmin();
-  } else if(p !== null){
-    alert("Galat Password! Customer ko Admin nahi khulta.");
-  }
-}
-function logoutAdmin(){
-  isAdmin = false;
-  sessionStorage.removeItem('ak_admin');
-  document.getElementById('logoutBtn').style.display='none';
-  renderProducts();
-  alert("Logout ho gaya.");
-}
-function openAdmin(){ document.getElementById('adminPanel').style.display='block'; }
+function openAdmin(){ if(!isAdmin) return; document.getElementById('adminPanel').style.display='block'; }
 function closeAdmin(){
   document.getElementById('adminPanel').style.display='none';
   document.getElementById('pName').value='';
@@ -126,6 +107,7 @@ function previewPhoto(e){
   reader.readAsDataURL(file);
 }
 function saveProduct(){
+  if(!isAdmin) return;
   let name = document.getElementById('pName').value.trim();
   let cat = document.getElementById('pCat').value;
   let price = document.getElementById('pPrice').value.trim();
@@ -138,7 +120,6 @@ function saveProduct(){
   closeAdmin(); renderProducts(); alert("Product Save Ho Gaya! ✅");
 }
 function renderProducts(){
-  if(isAdmin) document.getElementById('logoutBtn').style.display='inline-block';
   let q = document.getElementById('searchInput').value.toLowerCase();
   let box = document.getElementById('products');
   box.innerHTML='';
