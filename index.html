@@ -77,16 +77,13 @@ let products = JSON.parse(localStorage.getItem('ak_products_v3')) || [
 {name:"Denim Jeans", cat:"Pants", price:2499, img:"https://images.unsplash.com/photo-1542272604-787c3835535d?w=400"}
 ];
 let isAdmin = false;
-
 function saveProducts(){ localStorage.setItem('ak_products_v3', JSON.stringify(products)); }
-
 function showProducts(){
   let q = document.getElementById('search').value.toLowerCase();
   let box = document.getElementById('products');
   box.innerHTML = '';
   products.forEach((p,i)=>{
     if(p.name.toLowerCase().includes(q) || p.cat.toLowerCase().includes(q)){
-      // DIRECT WHATSAPP LINK - CLICK KARTE HI TERE WHATSAPP PE JAYEGA
       let msg = "Salam AK Clothing! Mujhe ye order karna hai: " + p.name + " - Rs." + p.price + " - Size: M - Mera Address: ";
       let waLink = "https://wa.me/923086625610?text=" + encodeURIComponent(msg);
       box.innerHTML += '<div class="card"><img src="'+p.img+'"><div class="in"><h3>'+p.name+'</h3><div class="cat">'+p.cat+'</div><div class="price">Rs. '+p.price+'</div><a class="buy" href="'+waLink+'" target="_blank">🟢 ORDER ON WHATSAPP</a>' + (isAdmin ? '<div class="adminBtns"><button onclick="editProduct('+i+')" style="background:#ff6b00;">✏️ EDIT</button><button onclick="deleteProduct('+i+')" style="background:red;">🗑️ DELETE</button></div>' : '') + '</div></div>';
@@ -94,7 +91,6 @@ function showProducts(){
   });
   if(box.innerHTML === ''){ box.innerHTML = '<p style="padding:30px;text-align:center;">Koi product nahi mila</p>'; }
 }
-
 function addProduct(){
   let n = document.getElementById('pName').value.trim();
   let c = document.getElementById('pCat').value.trim() || 'T-Shirt';
@@ -106,18 +102,9 @@ function addProduct(){
   document.getElementById('pName').value=''; document.getElementById('pCat').value=''; document.getElementById('pPrice').value=''; document.getElementById('pImg').value='';
   alert('✅ Product Add Ho Gaya!');
 }
-
-function deleteProduct(i){
-  if(confirm('Ye product delete karna hai?')){ products.splice(i,1); saveProducts(); showProducts(); }
-}
-
-function editProduct(i){
-  let np = prompt('Nayi Price likho:', products[i].price);
-  if(np){ products[i].price = np; saveProducts(); showProducts(); alert('✅ Price Change Ho Gayi!'); }
-}
-
+function deleteProduct(i){ if(confirm('Ye product delete karna hai?')){ products.splice(i,1); saveProducts(); showProducts(); } }
+function editProduct(i){ let np = prompt('Nayi Price likho:', products[i].price); if(np){ products[i].price = np; saveProducts(); showProducts(); alert('✅ Price Change Ho Gayi!'); } }
 function closeAdmin(){ document.getElementById('adminPanel').style.display = 'none'; }
-
 function openAdmin(){
   isAdmin = true;
   document.getElementById('adminPanel').style.display = 'block';
@@ -125,11 +112,8 @@ function openAdmin(){
   showProducts();
   alert('👑 Welcome Admin AK! Admin Panel ON hai');
 }
-
-// SECRET ADMIN
 let params = new URLSearchParams(window.location.search);
 if(params.get('admin') === 'AK786'){ openAdmin(); }
-
 let taps = 0;
 document.getElementById('logoArea').addEventListener('click', ()=>{
   taps++;
@@ -141,7 +125,6 @@ document.getElementById('logoArea').addEventListener('click', ()=>{
   }
   setTimeout(()=>{ taps = 0; }, 3000);
 });
-
 showProducts();
 </script>
 </body>
