@@ -1,68 +1,130 @@
- <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AK Clothing - Style That Feels Like You</title>
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AK Clothing - Premium Fashion</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
-body{background:#f5f5f5;color:#111}
-header{background:#111;color:#fff;padding:16px;text-align:center;position:sticky;top:0;z-index:10}
-header h1{font-size:26px;letter-spacing:2px}
-header h1 span{color:#ff3b30}
-header p{font-size:13px;opacity:.8;margin-top:4px}
-.hero{background:linear-gradient(135deg,#111,#333);color:#fff;text-align:center;padding:35px 15px}
-.hero h2{font-size:28px;line-height:1.2}
-.hero h2 span{color:#ffcc00}
-.hero p{margin:10px 0 18px;opacity:.85}
-.hero button{background:#ff3b30;color:#fff;border:0;padding:12px 22px;border-radius:25px;font-weight:bold;font-size:15px}
-.topbar{display:flex;justify-content:space-between;align-items:center;padding:12px 15px}
-.topbar h3{font-size:18px}
-.topbar button{background:#111;color:#fff;border:0;padding:8px 14px;border-radius:20px;font-size:13px}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:0 12px 20px}
-.card{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.08);position:relative}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
+body{background:#f5f5f5}
+header{background:#000;color:#fff;padding:15px;text-align:center;position:sticky;top:0;z-index:100}
+header h1{font-size:24px;letter-spacing:2px}header h1 span{color:#ffcc00}
+header p{font-size:12px;color:#aaa;margin-top:3px}
+.hero{background:linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)),url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800');background-size:cover;background-position:center;color:#fff;text-align:center;padding:50px 15px}
+.hero h2{font-size:30px}.hero p{margin:10px 0 15px}
+.hero button{background:#ffcc00;border:0;padding:12px 30px;border-radius:25px;font-weight:bold;font-size:16px}
+#searchBox{margin:15px auto;max-width:420px;padding:0 15px}
+#searchBox input{width:100%;padding:12px;border-radius:25px;border:1px solid #ddd;font-size:15px;outline:none}
+#products{display:flex;flex-wrap:wrap;gap:15px;justify-content:center;padding:15px}
+.card{background:#fff;width:170px;border-radius:15px;overflow:hidden;box-shadow:0 5px 15px rgba(0,0,0,.1);text-align:center;padding-bottom:12px;position:relative}
 .card img{width:100%;height:180px;object-fit:cover}
-.card-body{padding:10px}
-.card-body h4{font-size:14px;min-height:34px}
-.cat{font-size:11px;color:#888;margin:4px 0}
-.price{font-weight:bold;font-size:15px;color:#111}
-.card-body a{display:block;margin-top:8px;background:#25D366;color:#fff;text-align:center;padding:9px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:13px}
-.del{position:absolute;top:8px;right:8px;background:red;color:#fff;border:0;width:26px;height:26px;border-radius:50%;display:none}
-.admin-mode .del{display:block}
-#adminPanel{display:none;background:#fff;margin:12px;border-radius:14px;padding:16px;box-shadow:0 2px 10px rgba(0,0,0,.1)}
-#adminPanel input,#adminPanel select{width:100%;padding:11px;margin:7px 0;border:1px solid #ddd;border-radius:8px}
-#adminPanel button{width:100%;padding:12px;border:0;border-radius:8px;font-weight:bold;margin-top:8px}
-.btn-add{background:#111;color:#fff}
-.btn-close{background:#eee}
-footer{background:#111;color:#fff;text-align:center;padding:18px;font-size:13px}
-footer a{color:#25D366;text-decoration:none;font-weight:bold}
-@media(min-width:700px){.grid{grid-template-columns:repeat(3,1fr);max-width:900px;margin:auto}.card img{height:230px}}
-</style>
-</head>
-<body>
-<header><h1>AK <span>CLOTHING</span></h1><p>STYLE THAT FEELS LIKE YOU</p></header>
-<div class="hero"><h2>New Collection<br><span>Ab Website Se Hi Add Karo</span></h2><p>Premium T-Shirts, Pants & Trend Shirts - Pakistan me Cash on Delivery</p><button onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">SHOP NOW ↓</button></div>
-<div id="adminPanel"><h3>➕ New Product Add Karo</h3><input id="pName" placeholder="Product Naam - Jaise Black Cargo Pants"><input id="pPrice" type="number" placeholder="Price - Jaise 1999"><select id="pCat"><option>T-Shirt</option><option>Pants</option><option>Trend Shirt</option><option>Other</option></select><input id="pImgUrl" placeholder="Photo ka Link (agar hai to)"><p style="font-size:12px;text-align:center;margin:4px">YA apne mobile se photo choose karo 👇</p><input id="pFile" type="file" accept="image/*"><button class="btn-add" onclick="addProduct()">✅ Product Add Karo</button><button class="btn-close" onclick="closeAdmin()">Band Karo</button></div>
-<div class="topbar"><h3 id="products">🛍️ Our Products</h3><button onclick="openAdmin()">⚙️ Admin / Add Product</button></div>
-<div class="grid" id="grid"></div>
-<footer><p>AK CLOTHING - Lahore, Pakistan</p><p style="margin-top:8px">Order ke liye WhatsApp karein: <a href="https://wa.me/923086625610">0308 6625610</a></p><p style="margin-top:6px;opacity:.6">Admin Password: 1234</p></footer>
+.card h3{font-size:15px;margin:8px 5px 2px}
+.card .price{color:#ff6b00;font-weight:bold;font-size:17px}
+.card .old{color:#999;text-decoration:line-through;font-size:13px;margin-left:5px}
+.card button{background:#000;color:#fff;border:0;padding:9px 18px;border-radius:20px;margin-top:8px;font-weight:bold}
+.card .badge{position:absolute;top:8px;left:8px;background:#ff3b30;color:#fff;font-size:11px;padding:4px 8px;border-radius:10px;font-weight:bold}
+#adminPanel{display:none;background:#000;color:#fff;padding:20px;margin:15px;border-radius:15px;border:3px solid #ffcc00}
+#adminPanel input{width:100%;padding:11px;margin:5px 0;border-radius:10px;border:0;font-size:14px}
+#adminPanel button{padding:11px 18px;border:0;border-radius:10px;font-weight:bold;color:#fff;margin:5px 5px 0 0}
+footer{background:#000;color:#fff;text-align:center;padding:20px;font-size:13px;margin-top:20px}
+#cartBtn{position:fixed;bottom:20px;right:20px;background:#ffcc00;border:0;width:60px;height:60px;border-radius:50%;font-size:25px;box-shadow:0 5px 20px rgba(0,0,0,.3);z-index:200}
+#cartCount{position:fixed;bottom:65px;right:20px;background:red;color:#fff;width:22px;height:22px;border-radius:50%;font-size:12px;line-height:22px;text-align:center;z-index:201;display:none}
+</style></head><body>
+<header><h1>AK <span>CLOTHING</span></h1><p>PREMIUM FASHION • LAHORE • CASH ON DELIVERY</p></header>
+<div class="hero"><h2>🔥 NEW COLLECTION 2026</h2><p>Best Quality - Best Price - Fast Delivery</p><button onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">🛍️ SHOP NOW</button></div>
+
+<!-- ADMIN PANEL - SIRF TUJHE DIKHEGA -->
+<div id="adminPanel">
+<h2 style="color:#ffcc00;">👑 ADMIN PANEL - AK ONLY</h2>
+<p style="font-size:13px;color:#aaa;margin:5px 0;">Tu Admin hai, customer ko ye nahi dikhega.</p>
+<input id="pName" placeholder="Product Naam - Jese: Black Hoodie">
+<input id="pPrice" placeholder="Price - Jese: 1500" type="number">
+<input id="pOldPrice" placeholder="Purani Price (Sale ke liye) - Jese: 2500" type="number">
+<input id="pImg" placeholder="Photo Link - https://...">
+<button onclick="addProduct()" style="background:#25D366;">➕ PRODUCT ADD KARO</button>
+<button onclick="clearAllProducts()" style="background:#ff3b30;">🗑️ SAB DELETE</button>
+<button onclick="alert('Total Products: '+products.length)" style="background:#333;">📊 Total Products</button>
+<p id="adminInfo" style="margin-top:10px;font-size:13px;color:#ffcc00;"></p>
+</div>
+
+<div id="searchBox"><input id="search" placeholder="🔍 Search - Hoodie, Shirt, Pant..." oninput="showProducts()"></div>
+<div id="products"></div>
+<button id="cartBtn" onclick="showCart()">🛒</button><div id="cartCount">0</div>
+<footer>© 2026 AK Clothing | WhatsApp: 0300-XXXXXXX | Lahore, Pakistan<br>Cash On Delivery All Pakistan 🚚</footer>
+
 <script>
-const WA="923086625610";
-let defaultProducts=[
-{name:"Classic Black T-Shirt",price:1499,cat:"T-Shirt",img:"https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600"},
-{name:"White Premium T-Shirt",price:1399,cat:"T-Shirt",img:"https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=600"},
-{name:"Oversized Grey T-Shirt",price:1599,cat:"T-Shirt",img:"https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=600"},
-{name:"Graphic Street T-Shirt",price:1699,cat:"T-Shirt",img:"https://images.unsplash.com/photo-1503341504253-dff4815485f1?w=600"},
-{name:"New Cargo Pants - Black",price:1999,cat:"Pants",img:"https://images.unsplash.com/photo-1542272604-787c3835535d?w=600"},
-{name:"Trend Oversized Shirt - White",price:1799,cat:"Trend Shirt",img:"https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=600"}];
-let products=JSON.parse(localStorage.getItem('ak_products')||'null')||defaultProducts;
-function save(){localStorage.setItem('ak_products',JSON.stringify(products));}
-function render(){let g=document.getElementById('grid');g.innerHTML='';products.forEach((p,i)=>{g.innerHTML+=`<div class="card"><button class="del" onclick="deleteProduct(${i})">✕</button><img src="${p.img}"><div class="card-body"><h4>${p.name}</h4><div class="cat">${p.cat}</div><div class="price">Rs. ${p.price}</div><a href="https://wa.me/${WA}?text=${encodeURIComponent('Assalam-o-Alaikum! Mujhe '+p.name+' order karni hai - Rs.'+p.price)}">Order on WhatsApp</a></div></div>`;});}
-function openAdmin(){let pass=prompt("Admin Password likho:");if(pass==="gojoto_sama_45"){document.body.classList.add('admin-mode');document.getElementById('adminPanel').style.display='block';alert("Welcome Boss! Ab product add karo.");}else if(pass!==null){alert("Ghalat password!");}}
-function closeAdmin(){document.getElementById('adminPanel').style.display='none';document.body.classList.remove('admin-mode');}
-function addProduct(){let name=document.getElementById('pName').value.trim();let price=document.getElementById('pPrice').value.trim();let cat=document.getElementById('pCat').value;let url=document.getElementById('pImgUrl').value.trim();let file=document.getElementById('pFile').files[0];if(!name||!price){alert("Naam aur Price to likho!");return;}if(file){let r=new FileReader();r.onload=function(e){products.unshift({name:name,price:price,cat:cat,img:e.target.result});save();render();alert("Product add ho gaya!");closeAdmin();};r.readAsDataURL(file);}else{products.unshift({name:name,price:price,cat:cat,img:url||"https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600"});save();render();alert("Product add ho gaya!");closeAdmin();}document.getElementById('pName').value='';document.getElementById('pPrice').value='';document.getElementById('pImgUrl').value='';}
-function deleteProduct(i){if(confirm("Ye product delete karna hai?")){products.splice(i,1);save();render();}}
-render();
-</script>
-</body>
-</html>
+// PRODUCTS DATA
+let products = JSON.parse(localStorage.getItem('ak_products')) || [
+{name:"Black Hoodie", price:1499, old:2499, img:"https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=400", badge:"HOT"},
+{name:"White T-Shirt", price:899, old:1299, img:"https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400", badge:"NEW"},
+{name:"Denim Jeans", price:1999, old:2999, img:"https://images.unsplash.com/photo-1542272604-787c3835535d?w=400", badge:"SALE"},
+{name:"Stylish Jacket", price:2999, old:4499, img:"https://images.unsplash.com/photo-1551028719-00167b16eac5?w=400", badge:"HOT"},
+{name:"Casual Shirt", price:1199, old:1799, img:"https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=400", badge:"NEW"},
+{name:"Track Suit", price:2499, old:3499, img:"https://images.unsplash.com/photo-1517438476312-10d79c077509?w=400", badge:"SALE"}
+];
+let cart = [];
+
+// ADMIN CHECK - YAHI MAIN CHEEZ HAI
+let params = new URLSearchParams(window.location.search);
+let isAdmin = params.get('admin') === 'AK786';
+if(isAdmin){
+  document.getElementById('adminPanel').style.display = 'block';
+  document.getElementById('adminInfo').textContent = '✅ Admin Mode ON hai - Ab tu Product Add / Delete / Price Change kar sakta hai. Customer ko ye panel kabhi nahi dikhega.';
+  setTimeout(()=>{ alert('👑 Welcome Admin AK! Admin Panel ON ho gaya!'); }, 600);
+}
+
+function saveProducts(){ localStorage.setItem('ak_products', JSON.stringify(products)); }
+
+function showProducts(){
+  let q = document.getElementById('search').value.toLowerCase();
+  let box = document.getElementById('products');
+  box.innerHTML = '';
+  products.forEach((p, i)=>{
+    if(p.name.toLowerCase().includes(q)){
+      box.innerHTML += `
+      <div class="card">
+        ${p.badge ? `<div class="badge">${p.badge}</div>` : ''}
+        <img src="${p.img}">
+        <h3>${p.name}</h3>
+        <p><span class="price">Rs. ${p.price}</span> <span class="old">Rs. ${p.old || ''}</span></p>
+        <button onclick="addToCart(${i})">🛒 ADD TO CART</button>
+        ${isAdmin ? `<br><button onclick="editProduct(${i})" style="background:#ff6b00; margin-top:5px; padding:7px 12px;">✏️ EDIT</button> <button onclick="deleteProduct(${i})" style="background:red; margin-top:5px; padding:7px 12px;">🗑️ DELETE</button>` : ''}
+      </div>`;
+    }
+  });
+  if(box.innerHTML==='') box.innerHTML='<p style="text-align:center; padding:30px;">Koi product nahi mila 😔</p>';
+}
+
+function addProduct(){
+  let n=document.getElementById('pName').value;
+  let pr=document.getElementById('pPrice').value;
+  let old=document.getElementById('pOldPrice').value;
+  let im=document.getElementById('pImg').value;
+  if(!n || !pr){ alert('Naam aur Price likho!'); return; }
+  products.push({name:n, price:pr, old:old||pr, img: im || 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400', badge:'NEW'});
+  saveProducts(); showProducts();
+  document.getElementById('pName').value=''; document.getElementById('pPrice').value=''; document.getElementById('pOldPrice').value=''; document.getElementById('pImg').value='';
+  alert('✅ Product Add Ho Gaya!');
+}
+function deleteProduct(i){
+  if(confirm('Ye product delete karna hai?')){ products.splice(i,1); saveProducts(); showProducts(); }
+}
+function editProduct(i){
+  let np = prompt('Nayi Price likho:', products[i].price);
+  if(np){ products[i].price = np; saveProducts(); showProducts(); alert('✅ Price Change Ho Gayi!'); }
+}
+function clearAllProducts(){
+  if(confirm('Sare products delete karne hain?')){ products=[]; saveProducts(); showProducts(); }
+}
+function addToCart(i){
+  cart.push(products[i]);
+  let cc=document.getElementById('cartCount');
+  cc.style.display='block'; cc.textContent=cart.length;
+  alert('✅ '+products[i].name+' Cart me add ho gaya!');
+}
+function showCart(){
+  if(cart.length===0){ alert('Cart khaali hai! Pehle product add karo.'); return; }
+  let total=0, txt='🛒 TERA CART:\n\n';
+  cart.forEach(c=>{ txt+= c.name+' - Rs.'+c.price+'\n'; total+=parseInt(c.price); });
+  txt+='\nTotal: Rs.'+total+'\n\nWhatsApp pe order karne ke liye OK dabao!';
+  if(confirm(txt)){ alert('WhatsApp pe order bhejo: 0300-XXXXXXX'); }
+}
+showProducts();
+</script></body></html>
