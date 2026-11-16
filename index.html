@@ -3,73 +3,76 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MELLORA - Brownies & Cakes</title>
+<title>AK Clothing - Premium Wear</title>
 <style>
 * { margin:0; padding:0; box-sizing:border-box; font-family:Arial, sans-serif; }
-body { background:#fff7f0; padding-bottom:20px; }
-header { background:#2b1200; color:#fff; text-align:center; padding:26px 10px; position:relative; }
-header h1 { font-size:44px; font-weight:900; letter-spacing:3px; }
-header p { letter-spacing:3px; color:#ffccaa; font-size:13px; margin-top:6px; }
+body { background:#f5f5f5; padding-bottom:20px; }
+header { background:#000; color:#fff; text-align:center; padding:26px 10px; position:relative; }
+header h1 { font-size:42px; font-weight:900; letter-spacing:2px; }
+header h1 span { color:#ff8c42; }
+header p { letter-spacing:3px; color:#ccc; font-size:12px; margin-top:6px; }
 #adminPanel { display:none; background:#fff; margin:12px; padding:15px; border-radius:15px; box-shadow:0 2px 10px rgba(0,0,0,0.08); }
 #adminPanel h3 { margin-bottom:8px; }
 #adminPanel input, #adminPanel select { width:100%; padding:12px; margin:6px 0; border:1px solid #ddd; border-radius:10px; font-size:15px; }
-#adminPanel button { width:100%; padding:13px; background:#2b1200; color:#fff; border:none; border-radius:10px; font-weight:900; margin-top:8px; cursor:pointer; font-size:15px; }
+#adminPanel button { width:100%; padding:13px; background:#000; color:#fff; border:none; border-radius:10px; font-weight:900; margin-top:8px; cursor:pointer; font-size:15px; }
 .search-box { padding:14px; }
-.search-box input { width:100%; padding:14px 18px; border-radius:25px; border:1px solid #ffd9c0; font-size:16px; outline:none; background:#fff; }
-.filter { display:flex; gap:8px; padding:0 14px 12px; }
-.filter button { flex:1; padding:11px; border:none; border-radius:20px; font-weight:900; cursor:pointer; background:#ffe8d6; font-size:14px; }
-.filter button.active { background:#2b1200; color:#fff; }
+.search-box input { width:100%; padding:14px 18px; border-radius:25px; border:1px solid #ddd; font-size:16px; outline:none; background:#fff; }
+.filter { display:flex; gap:8px; padding:0 14px 12px; overflow-x:auto; }
+.filter button { flex:1; white-space:nowrap; padding:11px 14px; border:none; border-radius:20px; font-weight:900; cursor:pointer; background:#fff; font-size:14px; border:1px solid #eee; }
+.filter button.active { background:#000; color:#fff; }
 h2 { padding:0 14px; font-size:26px; margin-bottom:12px; }
 .grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; padding:0 12px; }
 .card { background:#fff; border-radius:16px; overflow:hidden; box-shadow:0 2px 12px rgba(0,0,0,0.08); }
-.card img { width:100%; height:200px; object-fit:cover; display:block; }
+.card img { width:100%; height:230px; object-fit:cover; display:block; }
 .card-body { padding:12px; }
-.card-body h3 { font-size:17px; line-height:1.3; min-height:44px; }
+.card-body h3 { font-size:16px; line-height:1.3; min-height:42px; }
 .card-body p { color:#999; margin:6px 0; font-size:13px; }
-.badge { background:#ff8c42; color:#fff; font-size:11px; padding:4px 9px; border-radius:10px; display:inline-block; }
-.price { font-size:22px; font-weight:900; margin:8px 0 10px; }
+.badge { background:#000; color:#fff; font-size:11px; padding:4px 9px; border-radius:10px; display:inline-block; }
+.price { font-size:21px; font-weight:900; margin:8px 0 10px; }
 .whatsapp { background:#22c55e; color:#fff; border:none; width:100%; padding:12px; border-radius:12px; font-weight:900; font-size:14px; cursor:pointer; margin-bottom:8px; }
 .row { display:none; gap:8px; }
 .row.show { display:flex; }
 .edit { flex:1; background:#ff9800; color:#fff; border:none; padding:11px; border-radius:10px; font-weight:900; cursor:pointer; }
 .delete { flex:1; background:#ff2222; color:#fff; border:none; padding:11px; border-radius:10px; font-weight:900; cursor:pointer; }
-footer { background:#2b1200; color:#fff; text-align:center; padding:22px 12px; margin-top:20px; line-height:1.7; font-size:14px; }
+footer { background:#000; color:#fff; text-align:center; padding:22px 12px; margin-top:20px; line-height:1.7; font-size:14px; }
 footer b { color:#22c55e; }
 </style>
 </head>
 <body>
 
 <header>
-<h1>MELLORA</h1>
-<p>FRESH • SOFT • CHOCOLATY</p>
+<h1>AK <span>CLOTHING</span></h1>
+<p>PREMIUM • STYLISH • COMFORTABLE</p>
 </header>
 
 <div id="adminPanel">
-<h3>➕ Admin - Naya Item Add Karein</h3>
+<h3>➕ Admin - Naya Kapra Add Karein</h3>
 <p style="font-size:13px;color:#888;margin-bottom:8px">Ye product sab customers ko dikhega.</p>
 <input id="ghToken" placeholder="GitHub Token Dalein - Sirf Pehli Dafa (ghp_...)" type="password">
-<input id="pName" placeholder="Naam - Jaise Fudge Brownie">
-<select id="pCat"><option value="Brownie">Brownie</option><option value="Cake">Cake</option></select>
-<input id="pPrice" type="number" placeholder="Price - 499">
+<input id="pName" placeholder="Naam - Jaise Black Hoodie">
+<select id="pCat"><option value="T-Shirt">T-Shirt</option><option value="Hoodie">Hoodie</option><option value="Jeans">Jeans</option><option value="Shirt">Shirt</option><option value="Suit">Suit</option></select>
+<input id="pPrice" type="number" placeholder="Price - 999">
 <input id="pImg" placeholder="Image Link Paste Karein">
 <button onclick="addProduct()">✅ ADD ITEM - SAB KO DIKHEGA</button>
 <button onclick="logoutAdmin()" style="background:#777">🔒 Admin Band Karein</button>
 </div>
 
-<div class="search-box"><input id="search" oninput="render()" placeholder="🔍 Search - Brownie, Cake..."></div>
+<div class="search-box"><input id="search" oninput="render()" placeholder="🔍 Search - T-Shirt, Hoodie, Jeans..."></div>
 
 <div class="filter">
 <button id="btnAll" class="active" onclick="setFilter('All')">All</button>
-<button id="btnBrownie" onclick="setFilter('Brownie')">🍫 Brownie</button>
-<button id="btnCake" onclick="setFilter('Cake')">🎂 Cake</button>
+<button id="btnTShirt" onclick="setFilter('T-Shirt')">👕 T-Shirt</button>
+<button id="btnHoodie" onclick="setFilter('Hoodie')">🧥 Hoodie</button>
+<button id="btnJeans" onclick="setFilter('Jeans')">👖 Jeans</button>
+<button id="btnShirt" onclick="setFilter('Shirt')">👔 Shirt</button>
 </div>
 
-<h2>🍫 Our Menu</h2>
+<h2>🔥 New Collection</h2>
 <div class="grid" id="products"><p style="padding:10px">Loading...</p></div>
 
 <footer>
-<p>© 2026 MELLORA | Lahore, Pakistan</p>
-<p>Freshly Baked Daily • Home Delivery Available 🚚</p>
+<p>© 2026 AK Clothing | Lahore, Pakistan</p>
+<p>Premium Quality • Cash On Delivery Available 🚚</p>
 <p>Order On WhatsApp: <b>0326 4580349</b></p>
 </footer>
 
@@ -79,18 +82,17 @@ let filter = "All";
 let isAdmin = false;
 let products = [];
 
-// 👇 YAHAN APNA GITHUB NAAM AUR REPO NAAM LIKHEIN
 let GITHUB_USER = "akproducts45";
 let GITHUB_REPO = "Ak_clothing-";
 let GITHUB_BRANCH = "main";
 
 let defaultProducts = [
-  { name: "Classic Fudge Brownie", cat: "Brownie", price: 499, img: "https://images.unsplash.com/photo-1606312619070-d48b4c652a52?w=600&q=80" },
-  { name: "Nutella Loaded Brownie", cat: "Brownie", price: 699, img: "https://images.unsplash.com/photo-1618923850107-d1a234d7a73a?w=600&q=80" },
-  { name: "Lotus Biscoff Brownie", cat: "Brownie", price: 799, img: "https://images.unsplash.com/photo-1624353365286-3f8d62daad51?w=600&q=80" },
-  { name: "Chocolate Fudge Cake - 1 Pound", cat: "Cake", price: 1499, img: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600&q=80" },
-  { name: "Lotus Cake - 1 Pound", cat: "Cake", price: 1899, img: "https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=600&q=80" },
-  { name: "Birthday Special Cake - 2 Pound", cat: "Cake", price: 2999, img: "https://images.unsplash.com/photo-1535141192574-5d4897c12636?w=600&q=80" }
+  { name: "Classic Black T-Shirt", cat: "T-Shirt", price: 999, img: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600&q=80" },
+  { name: "Oversized White T-Shirt", cat: "T-Shirt", price: 1199, img: "https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=600&q=80" },
+  { name: "Black Hoodie - Premium", cat: "Hoodie", price: 2499, img: "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=600&q=80" },
+  { name: "Grey Hoodie - Winter", cat: "Hoodie", price: 2299, img: "https://images.unsplash.com/photo-1509942774463-acf339cf87d5?w=600&q=80" },
+  { name: "Blue Denim Jeans", cat: "Jeans", price: 2999, img: "https://images.unsplash.com/photo-1542272604-787c3835535d?w=600&q=80" },
+  { name: "Black Cargo Pants", cat: "Jeans", price: 2799, img: "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?w=600&q=80" }
 ];
 
 async function loadProducts() {
@@ -106,7 +108,7 @@ function checkAdminFromURL() {
   if (params.get("admin") === "AK786") {
     isAdmin = true;
     document.getElementById("adminPanel").style.display = "block";
-    let savedToken = localStorage.getItem("mellora_gh_token");
+    let savedToken = localStorage.getItem("ak_clothing_gh_token");
     if (savedToken) document.getElementById("ghToken").value = savedToken;
   }
 }
@@ -114,12 +116,12 @@ function logoutAdmin() { window.location.href = window.location.pathname; }
 
 function setFilter(f) {
   filter = f;
-  document.getElementById("btnAll").classList.remove("active");
-  document.getElementById("btnBrownie").classList.remove("active");
-  document.getElementById("btnCake").classList.remove("active");
+  document.querySelectorAll('.filter button').forEach(b=>b.classList.remove('active'));
   if (f === "All") document.getElementById("btnAll").classList.add("active");
-  if (f === "Brownie") document.getElementById("btnBrownie").classList.add("active");
-  if (f === "Cake") document.getElementById("btnCake").classList.add("active");
+  if (f === "T-Shirt") document.getElementById("btnTShirt").classList.add("active");
+  if (f === "Hoodie") document.getElementById("btnHoodie").classList.add("active");
+  if (f === "Jeans") document.getElementById("btnJeans").classList.add("active");
+  if (f === "Shirt") document.getElementById("btnShirt").classList.add("active");
   render();
 }
 
@@ -132,11 +134,11 @@ function render() {
     let adminButtons = "";
     if (isAdmin) { adminButtons = '<div class="row show"><button class="edit" onclick="editProduct(' + i + ')">✏️ EDIT</button><button class="delete" onclick="deleteProduct(' + i + ')">🗑️ DELETE</button></div>'; }
     return '<div class="card">'
-      + '<img src="' + p.img + '" onerror="this.src=\'https://via.placeholder.com/400x400?text=MELLORA\'">'
+      + '<img src="' + p.img + '" onerror="this.src=\'https://via.placeholder.com/400x500?text=AK+Clothing\'">'
       + '<div class="card-body">'
       + '<span class="badge">' + p.cat + '</span>'
       + '<h3 style="margin-top:6px">' + p.name + '</h3>'
-      + '<p>Freshly Baked • Lahore</p>'
+      + '<p>Premium Quality • Lahore</p>'
       + '<div class="price">Rs. ' + p.price + '</div>'
       + '<button class="whatsapp" onclick="orderProduct(\'' + p.name + '\',' + p.price + ')">🟢 ORDER ON WHATSAPP</button>'
       + adminButtons + '</div></div>';
@@ -144,14 +146,14 @@ function render() {
 }
 
 function orderProduct(name, price) {
-  let msg = "Assalam-o-Alaikum MELLORA! Mujhe ye order karna hai:%0A%0AItem: " + name + "%0APrice: Rs. " + price + "%0A%0AName:%0AAddress:%0ACity: Lahore";
+  let msg = "Assalam-o-Alaikum AK Clothing! Mujhe ye order karna hai:%0A%0AItem: " + name + "%0APrice: Rs. " + price + "%0A%0ASize:%0AName:%0AAddress:%0ACity: Lahore";
   window.open("https://wa.me/" + WHATSAPP + "?text=" + msg, "_blank");
 }
 
 async function saveToGitHub() {
   let token = document.getElementById("ghToken").value.trim();
   if (!token) { alert("Pehle GitHub Token Dalein"); return false; }
-  localStorage.setItem("mellora_gh_token", token);
+  localStorage.setItem("ak_clothing_gh_token", token);
   try {
     let getRes = await fetch("https://api.github.com/repos/" + GITHUB_USER + "/" + GITHUB_REPO + "/contents/products.json", { headers: { "Authorization": "Bearer " + token } });
     let getData = await getRes.json();
@@ -159,7 +161,7 @@ async function saveToGitHub() {
     let putRes = await fetch("https://api.github.com/repos/" + GITHUB_USER + "/" + GITHUB_REPO + "/contents/products.json", {
       method: "PUT",
       headers: { "Authorization": "Bearer " + token, "Content-Type": "application/json" },
-      body: JSON.stringify({ message: "Update products - MELLORA", content: content, sha: getData.sha, branch: GITHUB_BRANCH })
+      body: JSON.stringify({ message: "Update products - AK Clothing", content: content, sha: getData.sha, branch: GITHUB_BRANCH })
     });
     if (putRes.ok) { return true; } else { let e = await putRes.json(); alert("GitHub Error: " + e.message); return false; }
   } catch(e) { alert("Error: " + e.message); return false; }
@@ -171,9 +173,9 @@ async function addProduct() {
   let pr = document.getElementById("pPrice").value;
   let im = document.getElementById("pImg").value.trim();
   if (!n || !pr) { alert("Naam aur Price zaroori hai"); return; }
-  products.unshift({ name: n, cat: c, price: pr, img: im || "https://via.placeholder.com/400x400?text=MELLORA" });
+  products.unshift({ name: n, cat: c, price: pr, img: im || "https://via.placeholder.com/400x500?text=AK+Clothing" });
   let ok = await saveToGitHub();
-  if (ok) { alert("Ho Gaya! Ab ye product sab customers ko dikhega. 1 minute me refresh karein."); document.getElementById("pName").value=""; document.getElementById("pPrice").value=""; document.getElementById("pImg").value=""; render(); }
+  if (ok) { alert("Ho Gaya! Ab ye sab customers ko dikhega. 1 minute me refresh karein."); document.getElementById("pName").value=""; document.getElementById("pPrice").value=""; document.getElementById("pImg").value=""; render(); }
 }
 
 async function editProduct(i) {
