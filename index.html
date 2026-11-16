@@ -1,92 +1,119 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AK ALI KHAN - Premium Clothing</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AK ALI KHAN - Clothing & Game Level 5</title>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#c9a227">
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
 body{background:#fff;padding-bottom:70px}
 .announce{background:#000;color:#fff;text-align:center;font-size:12px;padding:7px}
-header{position:sticky;top:0;background:#fff;display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border-bottom:1px solid #eee;z-index:20}
-.logo{font-weight:900;font-size:21px;letter-spacing:1px} .logo span{color:#c9a227}
-.icons{font-size:19px;display:flex;gap:14px}
-.hero{position:relative} .hero img{width:100%;height:320px;object-fit:cover;display:block}
-.hero-text{position:absolute;bottom:20px;left:15px;color:#fff} .hero-text h1{font-size:28px;line-height:1.1} .hero-text p{font-size:13px;margin:6px 0}
-.shop-btn{background:#fff;color:#000;padding:10px 18px;border:none;border-radius:25px;font-weight:700;margin-top:8px}
-.cat{display:flex;gap:10px;overflow:auto;padding:12px} .cat div{min-width:90px;text-align:center;font-size:12px} .cat img{width:90px;height:90px;border-radius:50%;object-fit:cover}
-.sec{padding:5px 12px;display:flex;justify-content:space-between;align-items:center} .sec h3{font-size:18px}
+header{position:sticky;top:0;background:#fff;display:flex;justify-content:space-between;padding:12px;border-bottom:1px solid #eee;z-index:20}
+.logo{font-weight:900;font-size:20px} .logo span{color:#c9a227}
+.tabs{display:flex;gap:8px;padding:10px;overflow:auto}
+.tabs button{padding:10px 16px;border-radius:25px;border:1px solid #ddd;background:#fff;white-space:nowrap}
+.tabs button.active{background:#000;color:#fff}
+.top{display:flex;justify-content:space-around;background:#1a1a1a;color:#fff;padding:9px;margin:8px;border-radius:10px;font-size:13px}
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:12px}
-.card{border:1px solid #eee;border-radius:12px;overflow:hidden;position:relative;background:#fff}
-.card img{width:100%;height:230px;object-fit:cover}
+.card{border:1px solid #eee;border-radius:12px;overflow:hidden;position:relative}
+.card img{width:100%;height:220px;object-fit:cover}
 .badge{position:absolute;top:8px;left:8px;background:#ff4d00;color:#fff;font-size:11px;padding:4px 7px;border-radius:5px}
-.heart{position:absolute;top:8px;right:8px;background:#fff;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center}
-.body{padding:10px} .old{color:#999;text-decoration:line-through;font-size:12px} .new{color:#d00;font-weight:800;font-size:15px}
-.dots{display:flex;gap:7px;margin:8px 0} .dot{width:20px;height:20px;border-radius:50%;border:2px solid #ccc;cursor:pointer} .dot.on{border-color:#000}
-.btn{width:100%;padding:9px;border:1px solid #00838f;border-radius:20px;background:#fff;color:#00838f;margin-top:5px;cursor:pointer}
+.body{padding:10px} .old{color:#999;text-decoration:line-through;font-size:12px} .new{color:#d00;font-weight:800}
+.btn{width:100%;padding:9px;border:1px solid #00838f;border-radius:20px;background:#fff;color:#00838f;margin-top:5px}
 .btn2{background:#00838f;color:#fff}
-.thumbs{display:flex;gap:5px} .thumbs img{width:42px;height:42px;border-radius:6px;object-fit:cover;border:1px solid #ddd;cursor:pointer}
-.bottom{position:fixed;bottom:0;left:0;right:0;background:#fff;display:flex;justify-content:space-around;padding:11px 0;border-top:1px solid #eee;font-size:12px;z-index:20}
-#adminBox{display:none;background:#fffbe6;padding:15px;border:2px dashed #c9a227;margin:12px;border-radius:10px}
+.cars{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:12px}
+.car{background:#111;color:#fff;padding:12px;border-radius:12px;text-align:center;border:2px solid #333}
+.car.selected{border-color:#c9a227}
+.car button{padding:8px;border:none;border-radius:20px;background:#c9a227;font-weight:800;width:100%;margin-top:6px}
+.car button:disabled{background:#555;color:#aaa}
+#game{position:relative;width:360px;max-width:95vw;height:520px;background:linear-gradient(#2b3a2b,#333);margin:10px auto;overflow:hidden;border:3px solid #c9a227;border-radius:12px}
+#player{position:absolute;width:54px;height:95px;border-radius:12px;bottom:20px;left:155px;display:flex;align-items:center;justify-content:center;font-size:32px;z-index:5;border:2px solid #fff;background:#c9a227}
+.enemy,.coin,.petrol{position:absolute;display:flex;align-items:center;justify-content:center}
+.enemy{width:54px;height:95px;border-radius:12px;font-size:30px}
+.coin{width:34px;height:34px;background:#FFD700;border-radius:50%;font-size:18px;border:2px solid #fff}
+.petrol{width:44px;height:55px;background:#ff4444;border-radius:8px;font-size:24px}
+.controls{display:flex;justify-content:center;gap:12px}
+.controls button{width:68px;height:68px;border-radius:50%;font-size:26px;border:none;background:#eee}
+#msg{position:absolute;top:40%;left:0;right:0;font-size:22px;font-weight:900;color:#FFD700;z-index:10;display:none;text-shadow:2px 2px #000;text-align:center}
+.bottom{position:fixed;bottom:0;left:0;right:0;background:#fff;display:flex;justify-content:space-around;padding:11px 0;border-top:1px solid #eee;font-size:12px;z-index:20;text-align:center}
+.colorPick{display:flex;gap:10px;justify-content:center;margin:8px}
+.colorPick div{width:32px;height:32px;border-radius:50%;border:3px solid #fff;box-shadow:0 0 0 1px #ccc;cursor:pointer}
+#adminBox{display:none;background:#fffbe6;padding:15px;margin:12px;border:2px dashed #c9a227;border-radius:10px}
 input{width:100%;padding:10px;margin:6px 0;border:1px solid #ddd;border-radius:8px}
 </style>
 </head>
 <body>
-<div class="announce">FREE DELIVERY ON ORDERS OVER Rs. 3000 | COD ALL PAKISTAN</div>
-<header><div class="logo">AK <span>ALI KHAN</span></div><div class="icons">🔍 ❤️ 🛒 <b id="cartC">0</b></div></header>
+<div class="announce">AK ALI KHAN | Game Khelein, Coin Jeetein, Nayi Car Khareedein</div>
+<header><div class="logo">AK <span>ALI KHAN</span></div><div>🔍 ❤️ 🛒 <b id="cartC">0</b></div></header>
+<div class="tabs"><button class="active" onclick="showTab('shop',this)">🛍️ Shop</button><button onclick="showTab('game',this)">🏎️ Game - Level 5</button><button onclick="showTab('garage',this)">🏪 Garage</button></div>
 
-<div id="adminBox">
-<h3>Admin Panel - Sirf Aap Ke Liye</h3>
-<input id="n" placeholder="Product Name">
-<input id="o" type="number" placeholder="Purani Price - 2999">
-<input id="nw" type="number" placeholder="Sale Price - 2499">
-<input id="i1" placeholder="Pic 1 Link">
-<input id="i2" placeholder="Pic 2 Link - Black">
-<input id="i3" placeholder="Pic 3 Link - White">
-<button class="btn btn2" onclick="addP()">+ Add Product</button>
-</div>
-
-<div class="hero"><img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=900"><div class="hero-text"><p>NEW WINTER COLLECTION</p><h1>Premium Hoodies<br>In Pakistan</h1><button class="shop-btn" onclick="document.getElementById('grid').scrollIntoView()">Shop Now →</button></div></div>
-
-<div class="cat">
-<div><img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=200"><br>Hoodies</div>
-<div><img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=200"><br>T-Shirts</div>
-<div><img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=200"><br>Jackets</div>
-<div><img src="https://images.unsplash.com/photo-1542272604-787c3835535d?w=200"><br>Jeans</div>
-</div>
-
-<div class="sec"><h3>Best Selling Products</h3><span style="color:#00838f">View All →</span></div>
+<!-- SHOP -->
+<div id="tab-shop">
+<div class="top"><div>💰 Coins: <b class="coins">0</b></div><div>⭐ Level: <b>5</b></div><div>🏎️ Car: <b id="curCarTop">Mehran</b></div></div>
+<div id="adminBox"><h3>Admin - Sirf Aap Ke Liye</h3><input id="pn" placeholder="Product Name"><input id="po" type="number" placeholder="Purani Price"><input id="pnn" type="number" placeholder="Sale Price"><input id="pi" placeholder="Pic Link"><button class="btn btn2" onclick="addP()">+ Add Product</button></div>
+<div style="padding:0 12px"><h3>Best Selling Hoodies</h3></div>
 <div class="grid" id="grid"></div>
+</div>
 
-<div class="bottom"><div>🏠<br>Shop</div><div>❤️<br>Wishlist</div><div>🛒<br>Cart</div><div>👤<br>Account</div><div>🔍<br>Search</div></div>
+<!-- GAME -->
+<div id="tab-game" style="display:none">
+<div class="top"><div>💰 Coins: <b class="coins">0</b></div><div>⭐ Score: <b id="score">0</b></div><div>⛽ Petrol: <b id="fuel">100</b>%</div></div>
+<div style="text-align:center;padding:8px"><b>Aap Ki Car Ka Colour Badlein:</b><div class="colorPick"><div style="background:#000" onclick="setCarColor('#000','Black')"></div><div style="background:#c9a227" onclick="setCarColor('#c9a227','Golden')"></div><div style="background:#ff0000" onclick="setCarColor('#ff0000','Red')"></div><div style="background:#0055ff" onclick="setCarColor('#0055ff','Blue')"></div></div><span id="carColorName">Colour: Golden</span></div>
+<div id="game"><div id="msg"></div><div id="player">🏎️</div></div>
+<div style="text-align:center"><button class="btn" style="width:auto;padding:12px 20px" onclick="start()">▶ START RACE</button> <button class="btn" style="width:auto;padding:12px 20px;background:#ff2200;color:#fff;border:none" onclick="nitro()">🚀 NITRO</button></div>
+<div class="controls" style="margin-top:8px"><button onclick="move(-45)">◀</button><button onclick="move(45)">▶</button></div>
+<p style="text-align:center;font-size:12px;color:#888;margin-top:6px">Coin = Nayi Car | Petrol Pump lena mat bhooliyega | Police se bachein</p>
+</div>
+
+<!-- GARAGE -->
+<div id="tab-garage" style="display:none">
+<h3 style="text-align:center;padding:10px">🏪 AK CAR SHOWROOM</h3><p style="text-align:center;font-size:12px;color:#666">Coin se car khareedein. Coin save rehte hain.</p>
+<div class="cars" id="cars"></div>
+<div style="text-align:center"><button class="btn" style="width:auto;padding:12px 20px" onclick="watchAd()">📺 Ad Dekhein +100 Coins FREE</button></div>
+</div>
+
+<div class="bottom"><div onclick="showTab('shop')">🏠<br>Shop</div><div onclick="showTab('game')">🏎️<br>Game</div><div>🛒<br>Cart</div><div>👤<br>Account</div><div>🔍<br>Search</div></div>
 
 <script>
-let isAdmin = location.hash==='#admin';
-if(isAdmin) document.getElementById('adminBox').style.display='block';
-let products = JSON.parse(localStorage.getItem('ak2')) || [
-{name:"AK Premium Hoodie - Black Edition",old:2999,new:2499,black:"https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=600",white:"https://images.unsplash.com/photo-1578681994506-b8f463449011?w=600",imgs:["https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=600","https://images.unsplash.com/photo-1578681994506-b8f463449011?w=600"]},
-{name:"AK JUPITER Hoodie",old:3499,new:2799,black:"https://images.unsplash.com/photo-1509942774463-acf339cf87d5?w=600",white:"https://images.unsplash.com/photo-1611312449408-fcece27cdbb7?w=600",imgs:["https://images.unsplash.com/photo-1509942774463-acf339cf87d5?w=600","https://images.unsplash.com/photo-1611312449408-fcece27cdbb7?w=600"]},
-{name:"AK Oversized Hoodie",old:2999,new:2299,black:"https://images.unsplash.com/photo-1578681994506-b8f463449011?w=600",white:"https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=600",imgs:["https://images.unsplash.com/photo-1578681994506-b8f463449011?w=600","https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=600"]},
-{name:"AK Winter Premium Hoodie",old:3999,new:3299,black:"https://images.unsplash.com/photo-1611312449408-fcece27cdbb7?w=600",white:"https://images.unsplash.com/photo-1509942774463-acf339cf87d5?w=600",imgs:["https://images.unsplash.com/photo-1611312449408-fcece27cdbb7?w=600","https://images.unsplash.com/photo-1509942774463-acf339cf87d5?w=600"]}
-];
-let cart=0;
-function render(){
- document.getElementById('grid').innerHTML=products.map((p,i)=>{
- let d=Math.round((1-p.new/p.old)*100);
- return `<div class="card"><span class="badge">-${d}%</span><span class="heart">♡</span>
- <img id="m${i}" src="${p.imgs[0]}">
- <div class="body"><b>${p.name}</b><br><span class="old">Rs.${p.old}.00</span> <span class="new">Rs.${p.new}.00</span>
- <div class="dots"><div class="dot on" style="background:#000" onclick="chg(${i},'black',this)"></div><div class="dot" style="background:#fff" onclick="chg(${i},'white',this)"></div></div>
- <div class="thumbs">${p.imgs.map(u=>`<img src="${u}" onclick="document.getElementById('m${i}').src='${u}'">`).join('')}</div>
- <button class="btn" onclick="alert('${p.name}')">Quick View</button>
- <button class="btn btn2" onclick="addC()">Quick Shop</button>
- ${isAdmin?`<button class="btn" style="color:red" onclick="del(${i})">Admin: Delete</button>`:''}
- </div></div>`}).join('');
+let isAdmin=location.hash==='#admin'; if(isAdmin) document.getElementById('adminBox').style.display='block';
+let coins=parseInt(localStorage.getItem('ak_coins')||'250');
+let owned=JSON.parse(localStorage.getItem('ak_owned')||'["mehran"]');
+let selected=localStorage.getItem('ak_selected')||'mehran';
+let carColor=localStorage.getItem('ak_carColor')||'#c9a227';
+let allCars=[{id:'mehran',name:'Mehran',emoji:'🚗',price:0,speed:6},{id:'cultus',name:'Cultus',emoji:'🚙',price:300,speed:7},{id:'civic',name:'Civic AK',emoji:'🏎️',price:800,speed:9},{id:'supra',name:'Supra GOLD AK',emoji:'🔥',price:1500,speed:12}];
+let products=JSON.parse(localStorage.getItem('ak_shop'))||[{name:"AK Premium Hoodie",old:2999,new:2499,img:"https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=600"},{name:"AK JUPITER Hoodie",old:3499,new:2799,img:"https://images.unsplash.com/photo-1509942774463-acf339cf87d5?w=600"}];
+function save(){localStorage.setItem('ak_coins',coins); localStorage.setItem('ak_owned',JSON.stringify(owned)); localStorage.setItem('ak_selected',selected); localStorage.setItem('ak_carColor',carColor); document.querySelectorAll('.coins').forEach(e=>e.innerText=coins); let cur=allCars.find(c=>c.id===selected); document.getElementById('curCarTop').innerText=cur.name; renderCars(); renderShop();}
+function setCarColor(c,name){carColor=c; document.getElementById('player').style.background=c; document.getElementById('carColorName').innerText='Colour: '+name; save();}
+function showTab(t,btn){document.getElementById('tab-shop').style.display=t==='shop'?'block':'none'; document.getElementById('tab-game').style.display=t==='game'?'block':'none'; document.getElementById('tab-garage').style.display=t==='garage'?'block':'none'; document.querySelectorAll('.tabs button').forEach(b=>b.classList.remove('active')); if(btn) btn.classList.add('active');}
+function renderShop(){document.getElementById('grid').innerHTML=products.map((p,i)=>{let d=Math.round((1-p.new/p.old)*100); return `<div class="card"><span class="badge">-${d}%</span><img src="${p.img}"><div class="body"><b>${p.name}</b><br><span class="old">Rs.${p.old}</span> <span class="new">Rs.${p.new}</span><br><div style="display:flex;gap:6px;margin:6px 0"><div style="width:20px;height:20px;background:#000;border-radius:50%"></div><div style="width:20px;height:20px;background:#fff;border:1px solid #ccc;border-radius:50%"></div></div><button class="btn" onclick="alert('Quick View')">Quick View</button><button class="btn btn2" onclick="addCart()">Quick Shop - Add</button>${isAdmin?`<button class="btn" style="color:red" onclick="delP(${i})">Admin: Delete</button>`:''}</div></div>`}).join('');}
+function addCart(){let c=+document.getElementById('cartC').innerText+1; document.getElementById('cartC').innerText=c; alert('Cart me add ho gaya!');}
+function addP(){products.push({name:document.getElementById('pn').value,old:+document.getElementById('po').value,new:+document.getElementById('pnn').value,img:document.getElementById('pi').value}); localStorage.setItem('ak_shop',JSON.stringify(products)); renderShop(); alert('Add ho gaya!');}
+function delP(i){products.splice(i,1); localStorage.setItem('ak_shop',JSON.stringify(products)); renderShop();}
+function renderCars(){document.getElementById('cars').innerHTML=allCars.map(c=>{let has=owned.includes(c.id); return `<div class="car ${selected===c.id?'selected':''}"><div style="font-size:42px">${c.emoji}</div><b>${c.name}</b><br><span style="font-size:12px">Speed ${c.speed} | ${c.price===0?'FREE':c.price+' Coins'}</span><br>${has?`<button onclick="selectCar('${c.id}')">${selected===c.id?'✅ Selected':'Select'}</button>`:`<button onclick="buyCar('${c.id}')" ${coins<c.price?'disabled':''}>${coins>=c.price?'Buy - '+c.price:'🔒 '+c.price+' Chahiye'}</button>`}</div>`}).join('');}
+function buyCar(id){let c=allCars.find(x=>x.id===id); if(coins>=c.price){coins-=c.price; owned.push(id); selected=id; save(); alert(c.name+' khareed li! Mubarak ho!');}}
+function selectCar(id){selected=id; save();}
+function watchAd(){coins+=100; save(); alert('+100 Coins mil gaye!');}
+save(); renderShop(); document.getElementById('player').style.background=carColor;
+
+// GAME
+let player=document.getElementById('player'), game=document.getElementById('game'), msg=document.getElementById('msg');
+let x=155, score=0, fuel=100, playing=false, nitroOn=false, levelUpShown=false;
+function move(d){x+=d; if(x<5)x=5; if(x>303)x=303; player.style.left=x+'px';}
+function show(t){msg.innerText=t; msg.style.display='block'; setTimeout(()=>msg.style.display='none',1300);}
+function nitro(){if(!playing) return; nitroOn=true; show('🚀 NITRO ON!'); setTimeout(()=>nitroOn=false,2000);}
+function start(){ if(playing) return; playing=true; show('LEVEL 5 - LAHORE START!'); let cur=allCars.find(c=>c.id===selected); let base=cur.speed; player.innerText=cur.emoji;
+ setInterval(()=>{ if(!playing) return; score+=nitroOn?4:1; fuel-=0.12; if(fuel<=0){playing=false; coins+=Math.floor(score/10); save(); alert('Petrol Khatam! Score: '+score); location.reload();}
+  document.getElementById('score').innerText=score; document.getElementById('fuel').innerText=Math.floor(fuel);
+  if(score>=2000 && !levelUpShown){levelUpShown=true; show('🎉 LEVEL UP! Aap Pro Racer ban gaye!');}
+ },50);
+ setInterval(()=>{if(!playing) return; spawnEnemy(base);},750);
+ setInterval(()=>{if(!playing) return; spawnCoin(base);},1000);
+ setInterval(()=>{if(!playing) return; spawnPetrol(base);},5000);
 }
-function chg(i,c,el){el.parentElement.querySelectorAll('.dot').forEach(d=>d.classList.remove('on'));el.classList.add('on');document.getElementById('m'+i).src = c==='black'?products[i].black:products[i].white;}
-function addC(){cart++;document.getElementById('cartC').innerText=cart;alert('Cart me add ho gaya!')}
-function addP(){let p={name:document.getElementById('n').value,old:+document.getElementById('o').value,new:+document.getElementById('nw').value,black:document.getElementById('i2').value,white:document.getElementById('i3').value,imgs:[document.getElementById('i1').value,document.getElementById('i2').value,document.getElementById('i3').value]};products.push(p);localStorage.setItem('ak2',JSON.stringify(products));render();alert('Add ho gaya!')}
-function del(i){products.splice(i,1);localStorage.setItem('ak2',JSON.stringify(products));render();}
-render();
+function spawnEnemy(base){let e=document.createElement('div'); e.className='enemy'; e.innerText=Math.random()>0.85?'🚓':'🚗'; e.style.background='#'+Math.floor(Math.random()*900+100); let lanes=[8,98,188,278]; e.style.left=lanes[Math.floor(Math.random()*4)]+'px'; e.style.top='-100px'; game.appendChild(e); let y=-100; let iv=setInterval(()=>{if(!playing){clearInterval(iv);return;} y+=nitroOn?base+6:base; e.style.top=y+'px'; if(y>430 && y<520 && Math.abs(parseInt(e.style.left)-x)<45){playing=false; coins+=Math.floor(score/10); save(); alert('CRASH! Score: '+score+'\nCoins mile: '+Math.floor(score/10)); location.reload();} if(y>600){clearInterval(iv); e.remove();}},20);}
+function spawnCoin(base){let c=document.createElement('div'); c.className='coin'; c.innerText='🪙'; let lanes=[15,105,195,285]; c.style.left=lanes[Math.floor(Math.random()*4)]+'px'; c.style.top='-40px'; game.appendChild(c); let y=-40; let iv=setInterval(()=>{if(!playing){clearInterval(iv);return;} y+=base; c.style.top=y+'px'; if(y>430 && y<520 && Math.abs(parseInt(c.style.left)-x)<35){coins+=10; score+=50; save(); c.remove(); clearInterval(iv); show('+10 COINS!');} if(y>600){clearInterval(iv); c.remove();}},20);}
+function spawnPetrol(base){let p=document.createElement('div'); p.className='petrol'; p.innerText='⛽'; let lanes=[15,105,195,285]; p.style.left=lanes[Math.floor(Math.random()*4)]+'px'; p.style.top='-60px'; game.appendChild(p); let y=-60; let iv=setInterval(()=>{if(!playing){clearInterval(iv);return;} y+=base; p.style.top=y+'px'; if(y>430 && y<520 && Math.abs(parseInt(p.style.left)-x)<40){fuel=100; p.remove(); clearInterval(iv); show('⛽ PETROL FULL!');} if(y>600){clearInterval(iv); p.remove();}},20);}
 </script>
 </body>
 </html>
