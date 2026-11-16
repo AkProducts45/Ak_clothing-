@@ -1,151 +1,123 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AK CLOTHING - Style That Feels Like You</title>
+<title>AK Clothing</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
-body{background:#f5f5f5}
-header{background:#000;color:#fff;text-align:center;padding:20px 10px;position:relative}
-header h1{font-size:32px;letter-spacing:2px}
-header h1 span{color:#ff2a2a}
-header p{color:#aaa;font-size:13px;letter-spacing:3px;margin-top:5px}
-#adminBtn{display:none;position:absolute;top:15px;right:15px;background:#333;color:#fff;border:1px solid #555;padding:7px 12px;border-radius:20px;cursor:pointer;font-size:12px}
-.search-box{padding:15px}
-.search-box input{width:100%;padding:13px 15px;border-radius:30px;border:1px solid #ddd;outline:none;font-size:15px}
-h2{padding:0 15px 10px;font-size:22px}
-#products{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:0 15px 20px}
-.card{background:#fff;border-radius:15px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,0.08)}
-.card img{width:100%;height:220px;object-fit:cover;background:#eee;display:block}
-.card-body{padding:12px}
-.card-body h3{font-size:15px;line-height:1.3;min-height:38px}
-.card-body .cat{color:#888;font-size:13px;margin:5px 0}
-.card-body .price{font-weight:bold;font-size:17px;margin-bottom:10px}
-.wa-btn{display:block;background:#22c55e;color:#fff;text-align:center;padding:11px;border-radius:10px;text-decoration:none;font-weight:bold;font-size:14px}
-.admin-btns{display:none;gap:8px;margin-top:8px}
-.edit-btn{flex:1;background:#ff8a00;color:#fff;border:none;padding:9px;border-radius:8px;cursor:pointer;font-weight:bold}
-.del-btn{flex:1;background:#ff2a2a;color:#fff;border:none;padding:9px;border-radius:8px;cursor:pointer;font-weight:bold}
-footer{background:#000;color:#fff;text-align:center;padding:20px 10px;font-size:14px;line-height:1.7}
-footer b{color:#22c55e}
-#adminPanel{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);z-index:999;overflow:auto}
-.admin-box{background:#fff;margin:20px auto;width:92%;max-width:450px;border-radius:15px;padding:20px}
-.admin-box h3{text-align:center;margin-bottom:15px}
-.admin-box label{font-size:13px;font-weight:bold;display:block;margin:12px 0 5px}
-.admin-box input,.admin-box select{width:100%;padding:12px;border:1px solid #ddd;border-radius:10px;font-size:15px;outline:none}
-.gallery-btn{display:block;background:#111;color:#fff;text-align:center;padding:13px;border-radius:10px;cursor:pointer;font-weight:bold;margin-top:5px}
-#previewImg{width:100%;height:220px;object-fit:cover;border-radius:10px;margin-top:10px;display:none;background:#eee}
-.add-btn{width:100%;background:#22c55e;color:#fff;border:none;padding:14px;border-radius:10px;font-weight:bold;font-size:16px;margin-top:15px;cursor:pointer}
-.close-btn{width:100%;background:#eee;border:none;padding:12px;border-radius:10px;margin-top:10px;cursor:pointer}
-@media(max-width:500px){#products{grid-template-columns:1fr 1fr}.card img{height:180px}}
+*{box-sizing:border-box}
+body{margin:0;background:#080808;color:white;font-family:Arial}
+header{background:#000;padding:25px;text-align:center;border-bottom:2px solid #d6ad55}
+header h1{color:#d6ad55;letter-spacing:4px}
+header p{letter-spacing:5px;color:#aaa}
+.hero{text-align:center;padding:65px 15px;background:linear-gradient(120deg,#17120a,#000)}
+.hero h2{font-size:42px}
+.hero span{color:#d6ad55}
+.hero p{color:#bbb}
+button{background:#d6ad55;color:black;border:0;padding:13px 20px;font-weight:bold;cursor:pointer}
+h2.section{text-align:center;color:#d6ad55;margin:35px 0}
+.search{display:block;width:85%;max-width:450px;margin:20px auto;padding:14px;background:#171717;border:1px solid #d6ad55;color:white}
+.products{display:grid;grid-template-columns:repeat(2,1fr);gap:15px;padding:15px;max-width:1000px;margin:auto}
+.card{background:#181818;border:1px solid #51401f;padding:12px;border-radius:8px}
+.card img{width:100%;height:190px;object-fit:cover;background:#292929}
+.card h3{font-size:17px}
+.price{color:#d6ad55;font-size:20px;font-weight:bold}
+.card button{width:100%;margin-top:8px}
+#cart{padding:25px;text-align:center;background:#171717;margin:25px 15px}
+footer{text-align:center;background:#000;padding:30px;color:#bbb;line-height:2;border-top:1px solid #d6ad55}
+footer b{color:#d6ad55}
+@media(min-width:700px){.products{grid-template-columns:repeat(3,1fr)}}
 </style>
 </head>
 <body>
+
 <header>
-<h1>AK <span>CLOTHING</span></h1>
+<h1>AK CLOTHING</h1>
 <p>STYLE THAT FEELS LIKE YOU</p>
-<button id="adminBtn" onclick="openAdmin()">⚙️ Admin</button>
 </header>
-<div class="search-box">
-<input type="text" id="searchInput" placeholder="🔍 Search - T-Shirt, Pant..." oninput="renderProducts()">
+
+<div class="hero">
+<h2>WEAR YOUR <span>OWN STYLE</span></h2>
+<p>Premium Fashion | Modern Collection</p>
+<button onclick="document.getElementById('shop').scrollIntoView()">SHOP NOW</button>
 </div>
-<h2>🛍️ Our Products</h2>
-<div id="products"></div>
+
+<h2 class="section" id="shop">OUR PRODUCTS</h2>
+<input class="search" id="search" placeholder="Search products..." oninput="showProducts()">
+
+<div class="products" id="products"></div>
+
+<div id="cart">
+<h2 style="color:#d6ad55">YOUR CART</h2>
+<div id="items">Your cart is empty</div>
+<h3 id="total">Total: Rs. 0</h3>
+<button onclick="order()">ORDER ON WHATSAPP</button>
+</div>
+
 <footer>
-© 2026 AK Clothing | Lahore, Pakistan<br>
-Cash On Delivery All Over Pakistan 🚚<br>
-Order On WhatsApp: <b>0308 6625610</b>
+<b>AK CLOTHING</b><br>
+Lahore, Pakistan<br>
+Cash On Delivery - Pakistan<br>
+WhatsApp: 0308 6625610<br>
+© 2026 AK Clothing
 </footer>
-<div id="adminPanel">
-<div class="admin-box">
-<h3>Admin Panel - Add Product</h3>
-<label>Product Name</label>
-<input type="text" id="pName" placeholder="Ex: JUPITER Hoodie">
-<label>Category</label>
-<select id="pCat"><option>Hoodie</option><option>T-Shirt</option><option>Pant</option><option>Shirt</option><option>Track Suit</option></select>
-<label>Price (Rs.)</label>
-<input type="number" id="pPrice" placeholder="Ex: 2499">
-<label>Product Photo</label>
-<label class="gallery-btn" for="pImage">📸 Gallery Se Photo Chuno</label>
-<input type="file" id="pImage" accept="image/*" style="display:none" onchange="previewPhoto(event)">
-<img id="previewImg">
-<button class="add-btn" onclick="saveProduct()">+ ADD PRODUCT</button>
-<button class="close-btn" onclick="closeAdmin()">X CLOSE</button>
-</div>
-</div>
+
 <script>
-// SIRF ADMIN LINK SE ADMIN KHULEGA
-let params = new URLSearchParams(window.location.search);
-let isAdmin = params.get('admin') === 'AK123';
-if(isAdmin){
-  document.getElementById('adminBtn').style.display = 'block';
+const phone="923086625610";
+
+const products=[
+{name:"AK Black T-Shirt",price:1499,category:"T-Shirt",emoji:"👕"},
+{name:"AK White T-Shirt",price:1399,category:"T-Shirt",emoji:"👕"},
+{name:"AK Premium Hoodie",price:2499,category:"Hoodie",emoji:"🧥"},
+{name:"AK Casual Shirt",price:1799,category:"Shirt",emoji:"👔"},
+{name:"AK Oversized T-Shirt",price:1599,category:"T-Shirt",emoji:"👕"},
+{name:"AK Winter Hoodie",price:2799,category:"Hoodie",emoji:"🧥"}
+];
+
+let cart=[];
+
+function showProducts(){
+let q=document.getElementById("search").value.toLowerCase();
+document.getElementById("products").innerHTML=products
+.filter(p=>p.name.toLowerCase().includes(q)||p.category.toLowerCase().includes(q))
+.map((p,i)=>`
+<div class="card">
+<div style="height:190px;display:grid;place-items:center;background:#292929;font-size:75px">${p.emoji}</div>
+<h3>${p.name}</h3>
+<p>${p.category}</p>
+<div class="price">Rs. ${p.price}</div>
+<button onclick="addCart('${p.name}')">ADD TO CART</button>
+</div>`).join("");
 }
-let products = JSON.parse(localStorage.getItem('ak_products') || 'null');
-if(!products){
-  products = [{name:"JUPITER Hoodie - Black Techwear", cat:"Hoodie", price:2499, img:"https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=800"}];
-  localStorage.setItem('ak_products', JSON.stringify(products));
+
+function addCart(name){
+let p=products.find(x=>x.name===name);
+cart.push(p);
+updateCart();
 }
-let tempImg = "";
-let editIndex = -1;
-function openAdmin(){ if(!isAdmin) return; document.getElementById('adminPanel').style.display='block'; }
-function closeAdmin(){
-  document.getElementById('adminPanel').style.display='none';
-  document.getElementById('pName').value='';
-  document.getElementById('pPrice').value='';
-  document.getElementById('previewImg').style.display='none';
-  tempImg=""; editIndex=-1;
+
+function updateCart(){
+document.getElementById("items").innerHTML=cart.length?
+cart.map((p,i)=>`<p>${p.name} - Rs. ${p.price} <button onclick="removeItem(${i})">X</button></p>`).join(""):"Your cart is empty";
+document.getElementById("total").innerText="Total: Rs. "+cart.reduce((s,p)=>s+p.price,0);
 }
-function previewPhoto(e){
-  let file = e.target.files[0];
-  if(!file) return;
-  let reader = new FileReader();
-  reader.onload = function(ev){
-    tempImg = ev.target.result;
-    let img = document.getElementById('previewImg');
-    img.src = tempImg; img.style.display='block';
-  };
-  reader.readAsDataURL(file);
+
+function removeItem(i){
+cart.splice(i,1);
+updateCart();
 }
-function saveProduct(){
-  if(!isAdmin) return;
-  let name = document.getElementById('pName').value.trim();
-  let cat = document.getElementById('pCat').value;
-  let price = document.getElementById('pPrice').value.trim();
-  if(!name){alert("Pehle Product ka Naam likho");return;}
-  if(!price){alert("Price likho");return;}
-  if(!tempImg && editIndex===-1){alert("Pehle Gallery se Photo Chuno");return;}
-  if(editIndex===-1){ products.push({name:name, cat:cat, price:price, img:tempImg}); }
-  else { products[editIndex].name=name; products[editIndex].cat=cat; products[editIndex].price=price; if(tempImg) products[editIndex].img=tempImg; }
-  localStorage.setItem('ak_products', JSON.stringify(products));
-  closeAdmin(); renderProducts(); alert("Product Save Ho Gaya! ✅");
+
+function order(){
+if(!cart.length){alert("Please add products first");return;}
+let total=cart.reduce((s,p)=>s+p.price,0);
+let message="Assalamualaikum! AK Clothing order:%0A"+
+cart.map(p=>p.name+" - Rs. "+p.price).join("%0A")+
+"%0ATotal: Rs. "+total;
+window.open("https://wa.me/"+phone+"?text="+message,"_blank");
 }
-function renderProducts(){
-  let q = document.getElementById('searchInput').value.toLowerCase();
-  let box = document.getElementById('products');
-  box.innerHTML='';
-  products.forEach((p,i)=>{
-    if(q && !p.name.toLowerCase().includes(q) && !p.cat.toLowerCase().includes(q)) return;
-    let msg = encodeURIComponent("Assalam-o-Alaikum! Mujhe ye product chahiye:\n\n" + p.name + "\nPrice: Rs. " + p.price);
-    let adminBtns = isAdmin ? `<div class="admin-btns" style="display:flex"><button class="edit-btn" onclick="editProduct(${i})">✏️ EDIT</button><button class="del-btn" onclick="deleteProduct(${i})">🗑️ DELETE</button></div>` : ``;
-    box.innerHTML += `<div class="card"><img src="${p.img}" onerror="this.src='https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=800'"><div class="card-body"><h3>${p.name}</h3><div class="cat">${p.cat}</div><div class="price">Rs. ${p.price}</div><a class="wa-btn" target="_blank" href="https://wa.me/923086625610?text=${msg}">🟢 ORDER ON WHATSAPP</a>${adminBtns}</div></div>`;
-  });
-  if(box.innerHTML==='') box.innerHTML='<p style="padding:10px">No product found</p>';
-}
-function editProduct(i){
-  if(!isAdmin) return;
-  editIndex=i;
-  document.getElementById('pName').value=products[i].name;
-  document.getElementById('pCat').value=products[i].cat;
-  document.getElementById('pPrice').value=products[i].price;
-  tempImg="";
-  let img=document.getElementById('previewImg'); img.src=products[i].img; img.style.display='block';
-  openAdmin();
-}
-function deleteProduct(i){
-  if(!isAdmin) return;
-  if(confirm("Delete kar dun?")){ products.splice(i,1); localStorage.setItem('ak_products', JSON.stringify(products)); renderProducts(); }
-}
-renderProducts();
+
+showProducts();
 </script>
 </body>
 </html>
