@@ -1,119 +1,124 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AK ALI KHAN - Clothing & Game Level 5</title>
-<link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#c9a227">
+<title>AK CLOTHING - Style That Feels Like You</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
-body{background:#fff;padding-bottom:70px}
-.announce{background:#000;color:#fff;text-align:center;font-size:12px;padding:7px}
-header{position:sticky;top:0;background:#fff;display:flex;justify-content:space-between;padding:12px;border-bottom:1px solid #eee;z-index:20}
-.logo{font-weight:900;font-size:20px} .logo span{color:#c9a227}
-.tabs{display:flex;gap:8px;padding:10px;overflow:auto}
-.tabs button{padding:10px 16px;border-radius:25px;border:1px solid #ddd;background:#fff;white-space:nowrap}
-.tabs button.active{background:#000;color:#fff}
-.top{display:flex;justify-content:space-around;background:#1a1a1a;color:#fff;padding:9px;margin:8px;border-radius:10px;font-size:13px}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:12px}
-.card{border:1px solid #eee;border-radius:12px;overflow:hidden;position:relative}
-.card img{width:100%;height:220px;object-fit:cover}
-.badge{position:absolute;top:8px;left:8px;background:#ff4d00;color:#fff;font-size:11px;padding:4px 7px;border-radius:5px}
-.body{padding:10px} .old{color:#999;text-decoration:line-through;font-size:12px} .new{color:#d00;font-weight:800}
-.btn{width:100%;padding:9px;border:1px solid #00838f;border-radius:20px;background:#fff;color:#00838f;margin-top:5px}
-.btn2{background:#00838f;color:#fff}
-.cars{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:12px}
-.car{background:#111;color:#fff;padding:12px;border-radius:12px;text-align:center;border:2px solid #333}
-.car.selected{border-color:#c9a227}
-.car button{padding:8px;border:none;border-radius:20px;background:#c9a227;font-weight:800;width:100%;margin-top:6px}
-.car button:disabled{background:#555;color:#aaa}
-#game{position:relative;width:360px;max-width:95vw;height:520px;background:linear-gradient(#2b3a2b,#333);margin:10px auto;overflow:hidden;border:3px solid #c9a227;border-radius:12px}
-#player{position:absolute;width:54px;height:95px;border-radius:12px;bottom:20px;left:155px;display:flex;align-items:center;justify-content:center;font-size:32px;z-index:5;border:2px solid #fff;background:#c9a227}
-.enemy,.coin,.petrol{position:absolute;display:flex;align-items:center;justify-content:center}
-.enemy{width:54px;height:95px;border-radius:12px;font-size:30px}
-.coin{width:34px;height:34px;background:#FFD700;border-radius:50%;font-size:18px;border:2px solid #fff}
-.petrol{width:44px;height:55px;background:#ff4444;border-radius:8px;font-size:24px}
-.controls{display:flex;justify-content:center;gap:12px}
-.controls button{width:68px;height:68px;border-radius:50%;font-size:26px;border:none;background:#eee}
-#msg{position:absolute;top:40%;left:0;right:0;font-size:22px;font-weight:900;color:#FFD700;z-index:10;display:none;text-shadow:2px 2px #000;text-align:center}
-.bottom{position:fixed;bottom:0;left:0;right:0;background:#fff;display:flex;justify-content:space-around;padding:11px 0;border-top:1px solid #eee;font-size:12px;z-index:20;text-align:center}
-.colorPick{display:flex;gap:10px;justify-content:center;margin:8px}
-.colorPick div{width:32px;height:32px;border-radius:50%;border:3px solid #fff;box-shadow:0 0 0 1px #ccc;cursor:pointer}
-#adminBox{display:none;background:#fffbe6;padding:15px;margin:12px;border:2px dashed #c9a227;border-radius:10px}
-input{width:100%;padding:10px;margin:6px 0;border:1px solid #ddd;border-radius:8px}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+body{background:#f5f5f5;padding-bottom:20px}
+header{background:#000;color:#fff;text-align:center;padding:22px 10px 18px;position:relative}
+header h1{font-size:42px;letter-spacing:2px;font-weight:900}
+header h1 span{color:#ff1a1a}
+header p{letter-spacing:4px;color:#aaa;font-size:13px;margin-top:4px}
+#adminBtn{position:absolute;top:15px;right:12px;background:#333;color:#fff;border:none;padding:7px 13px;border-radius:20px;font-size:14px;cursor:pointer}
+.search-box{padding:14px}
+.search-box input{width:100%;padding:14px 18px;border-radius:25px;border:1px solid #ddd;font-size:16px;outline:none;background:#fff}
+h2{padding:0 14px;font-size:26px;margin-bottom:12px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:0 12px}
+.card{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,0.08)}
+.card img{width:100%;height:220px;object-fit:cover;background:#eee}
+.card-body{padding:12px}
+.card-body h3{font-size:18px;line-height:1.2;min-height:44px}
+.card-body p{color:#888;margin:6px 0;font-size:15px}
+.price{font-size:22px;font-weight:900;margin:6px 0 10px}
+.whatsapp{background:#22c55e;color:#fff;border:none;width:100%;padding:12px;border-radius:12px;font-weight:900;font-size:15px;cursor:pointer;margin-bottom:8px}
+.row{display:flex;gap:8px}
+.edit{flex:1;background:#ff9800;color:#fff;border:none;padding:11px;border-radius:10px;font-weight:900;cursor:pointer}
+.delete{flex:1;background:#ff2222;color:#fff;border:none;padding:11px;border-radius:10px;font-weight:900;cursor:pointer}
+footer{background:#000;color:#fff;text-align:center;padding:22px 12px;margin-top:20px;line-height:1.7}
+footer b{color:#22c55e}
+#adminPanel{display:none;background:#fff;margin:12px;padding:15px;border-radius:15px}
+#adminPanel input{width:100%;padding:12px;margin:6px 0;border:1px solid #ddd;border-radius:10px}
+#adminPanel button{width:100%;padding:13px;background:#000;color:#fff;border:none;border-radius:10px;font-weight:900;margin-top:8px}
 </style>
 </head>
 <body>
-<div class="announce">AK ALI KHAN | Game Khelein, Coin Jeetein, Nayi Car Khareedein</div>
-<header><div class="logo">AK <span>ALI KHAN</span></div><div>🔍 ❤️ 🛒 <b id="cartC">0</b></div></header>
-<div class="tabs"><button class="active" onclick="showTab('shop',this)">🛍️ Shop</button><button onclick="showTab('game',this)">🏎️ Game - Level 5</button><button onclick="showTab('garage',this)">🏪 Garage</button></div>
 
-<!-- SHOP -->
-<div id="tab-shop">
-<div class="top"><div>💰 Coins: <b class="coins">0</b></div><div>⭐ Level: <b>5</b></div><div>🏎️ Car: <b id="curCarTop">Mehran</b></div></div>
-<div id="adminBox"><h3>Admin - Sirf Aap Ke Liye</h3><input id="pn" placeholder="Product Name"><input id="po" type="number" placeholder="Purani Price"><input id="pnn" type="number" placeholder="Sale Price"><input id="pi" placeholder="Pic Link"><button class="btn btn2" onclick="addP()">+ Add Product</button></div>
-<div style="padding:0 12px"><h3>Best Selling Hoodies</h3></div>
-<div class="grid" id="grid"></div>
+<header>
+<button id="adminBtn" onclick="checkAdmin()">⚙️ Admin</button>
+<h1>AK <span>CLOTHING</span></h1>
+<p>STYLE THAT FEELS LIKE YOU</p>
+</header>
+
+<div id="adminPanel">
+<h3>➕ Naya Product Add Karein</h3>
+<input id="pName" placeholder="Product Name - Jaise JUPITER Hoodie">
+<input id="pCat" placeholder="Category - Hoodie / T-Shirt">
+<input id="pPrice" type="number" placeholder="Price - 2499">
+<input id="pImg" placeholder="Image Link Paste Karein">
+<button onclick="addProduct()">✅ ADD PRODUCT</button>
+<button onclick="document.getElementById('adminPanel').style.display='none'" style="background:#777">Band Karein</button>
 </div>
 
-<!-- GAME -->
-<div id="tab-game" style="display:none">
-<div class="top"><div>💰 Coins: <b class="coins">0</b></div><div>⭐ Score: <b id="score">0</b></div><div>⛽ Petrol: <b id="fuel">100</b>%</div></div>
-<div style="text-align:center;padding:8px"><b>Aap Ki Car Ka Colour Badlein:</b><div class="colorPick"><div style="background:#000" onclick="setCarColor('#000','Black')"></div><div style="background:#c9a227" onclick="setCarColor('#c9a227','Golden')"></div><div style="background:#ff0000" onclick="setCarColor('#ff0000','Red')"></div><div style="background:#0055ff" onclick="setCarColor('#0055ff','Blue')"></div></div><span id="carColorName">Colour: Golden</span></div>
-<div id="game"><div id="msg"></div><div id="player">🏎️</div></div>
-<div style="text-align:center"><button class="btn" style="width:auto;padding:12px 20px" onclick="start()">▶ START RACE</button> <button class="btn" style="width:auto;padding:12px 20px;background:#ff2200;color:#fff;border:none" onclick="nitro()">🚀 NITRO</button></div>
-<div class="controls" style="margin-top:8px"><button onclick="move(-45)">◀</button><button onclick="move(45)">▶</button></div>
-<p style="text-align:center;font-size:12px;color:#888;margin-top:6px">Coin = Nayi Car | Petrol Pump lena mat bhooliyega | Police se bachein</p>
+<div class="search-box">
+<input id="search" oninput="render()" placeholder="🔍 Search - T-Shirt, Pant...">
 </div>
 
-<!-- GARAGE -->
-<div id="tab-garage" style="display:none">
-<h3 style="text-align:center;padding:10px">🏪 AK CAR SHOWROOM</h3><p style="text-align:center;font-size:12px;color:#666">Coin se car khareedein. Coin save rehte hain.</p>
-<div class="cars" id="cars"></div>
-<div style="text-align:center"><button class="btn" style="width:auto;padding:12px 20px" onclick="watchAd()">📺 Ad Dekhein +100 Coins FREE</button></div>
-</div>
+<h2>🛍️ Our Products</h2>
+<div class="grid" id="products"></div>
 
-<div class="bottom"><div onclick="showTab('shop')">🏠<br>Shop</div><div onclick="showTab('game')">🏎️<br>Game</div><div>🛒<br>Cart</div><div>👤<br>Account</div><div>🔍<br>Search</div></div>
+<footer>
+<p>© 2026 AK Clothing | Lahore, Pakistan</p>
+<p>Cash On Delivery All Over Pakistan 🚚</p>
+<p>Order On WhatsApp: <b>0308 6625610</b></p>
+</footer>
 
 <script>
-let isAdmin=location.hash==='#admin'; if(isAdmin) document.getElementById('adminBox').style.display='block';
-let coins=parseInt(localStorage.getItem('ak_coins')||'250');
-let owned=JSON.parse(localStorage.getItem('ak_owned')||'["mehran"]');
-let selected=localStorage.getItem('ak_selected')||'mehran';
-let carColor=localStorage.getItem('ak_carColor')||'#c9a227';
-let allCars=[{id:'mehran',name:'Mehran',emoji:'🚗',price:0,speed:6},{id:'cultus',name:'Cultus',emoji:'🚙',price:300,speed:7},{id:'civic',name:'Civic AK',emoji:'🏎️',price:800,speed:9},{id:'supra',name:'Supra GOLD AK',emoji:'🔥',price:1500,speed:12}];
-let products=JSON.parse(localStorage.getItem('ak_shop'))||[{name:"AK Premium Hoodie",old:2999,new:2499,img:"https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=600"},{name:"AK JUPITER Hoodie",old:3499,new:2799,img:"https://images.unsplash.com/photo-1509942774463-acf339cf87d5?w=600"}];
-function save(){localStorage.setItem('ak_coins',coins); localStorage.setItem('ak_owned',JSON.stringify(owned)); localStorage.setItem('ak_selected',selected); localStorage.setItem('ak_carColor',carColor); document.querySelectorAll('.coins').forEach(e=>e.innerText=coins); let cur=allCars.find(c=>c.id===selected); document.getElementById('curCarTop').innerText=cur.name; renderCars(); renderShop();}
-function setCarColor(c,name){carColor=c; document.getElementById('player').style.background=c; document.getElementById('carColorName').innerText='Colour: '+name; save();}
-function showTab(t,btn){document.getElementById('tab-shop').style.display=t==='shop'?'block':'none'; document.getElementById('tab-game').style.display=t==='game'?'block':'none'; document.getElementById('tab-garage').style.display=t==='garage'?'block':'none'; document.querySelectorAll('.tabs button').forEach(b=>b.classList.remove('active')); if(btn) btn.classList.add('active');}
-function renderShop(){document.getElementById('grid').innerHTML=products.map((p,i)=>{let d=Math.round((1-p.new/p.old)*100); return `<div class="card"><span class="badge">-${d}%</span><img src="${p.img}"><div class="body"><b>${p.name}</b><br><span class="old">Rs.${p.old}</span> <span class="new">Rs.${p.new}</span><br><div style="display:flex;gap:6px;margin:6px 0"><div style="width:20px;height:20px;background:#000;border-radius:50%"></div><div style="width:20px;height:20px;background:#fff;border:1px solid #ccc;border-radius:50%"></div></div><button class="btn" onclick="alert('Quick View')">Quick View</button><button class="btn btn2" onclick="addCart()">Quick Shop - Add</button>${isAdmin?`<button class="btn" style="color:red" onclick="delP(${i})">Admin: Delete</button>`:''}</div></div>`}).join('');}
-function addCart(){let c=+document.getElementById('cartC').innerText+1; document.getElementById('cartC').innerText=c; alert('Cart me add ho gaya!');}
-function addP(){products.push({name:document.getElementById('pn').value,old:+document.getElementById('po').value,new:+document.getElementById('pnn').value,img:document.getElementById('pi').value}); localStorage.setItem('ak_shop',JSON.stringify(products)); renderShop(); alert('Add ho gaya!');}
-function delP(i){products.splice(i,1); localStorage.setItem('ak_shop',JSON.stringify(products)); renderShop();}
-function renderCars(){document.getElementById('cars').innerHTML=allCars.map(c=>{let has=owned.includes(c.id); return `<div class="car ${selected===c.id?'selected':''}"><div style="font-size:42px">${c.emoji}</div><b>${c.name}</b><br><span style="font-size:12px">Speed ${c.speed} | ${c.price===0?'FREE':c.price+' Coins'}</span><br>${has?`<button onclick="selectCar('${c.id}')">${selected===c.id?'✅ Selected':'Select'}</button>`:`<button onclick="buyCar('${c.id}')" ${coins<c.price?'disabled':''}>${coins>=c.price?'Buy - '+c.price:'🔒 '+c.price+' Chahiye'}</button>`}</div>`}).join('');}
-function buyCar(id){let c=allCars.find(x=>x.id===id); if(coins>=c.price){coins-=c.price; owned.push(id); selected=id; save(); alert(c.name+' khareed li! Mubarak ho!');}}
-function selectCar(id){selected=id; save();}
-function watchAd(){coins+=100; save(); alert('+100 Coins mil gaye!');}
-save(); renderShop(); document.getElementById('player').style.background=carColor;
+let WHATSAPP = "923086625610"; // Aap ka number
+let products = JSON.parse(localStorage.getItem('ak_products') || 'null') || [
+ {name:"JUPITER Hoodie - Black Techwear", cat:"Hoodie", price:2499, img:"https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=600"},
+ {name:"Itachi hoodie", cat:"Hoodie", price:2799, img:"https://images.unsplash.com/photo-1578681994506-b8f463449011?w=600"},
+ {name:"AK Oversized T-Shirt", cat:"T-Shirt", price:1499, img:"https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600"},
+ {name:"AK Cargo Pant", cat:"Pant", price:2999, img:"https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=600"}
+];
 
-// GAME
-let player=document.getElementById('player'), game=document.getElementById('game'), msg=document.getElementById('msg');
-let x=155, score=0, fuel=100, playing=false, nitroOn=false, levelUpShown=false;
-function move(d){x+=d; if(x<5)x=5; if(x>303)x=303; player.style.left=x+'px';}
-function show(t){msg.innerText=t; msg.style.display='block'; setTimeout(()=>msg.style.display='none',1300);}
-function nitro(){if(!playing) return; nitroOn=true; show('🚀 NITRO ON!'); setTimeout(()=>nitroOn=false,2000);}
-function start(){ if(playing) return; playing=true; show('LEVEL 5 - LAHORE START!'); let cur=allCars.find(c=>c.id===selected); let base=cur.speed; player.innerText=cur.emoji;
- setInterval(()=>{ if(!playing) return; score+=nitroOn?4:1; fuel-=0.12; if(fuel<=0){playing=false; coins+=Math.floor(score/10); save(); alert('Petrol Khatam! Score: '+score); location.reload();}
-  document.getElementById('score').innerText=score; document.getElementById('fuel').innerText=Math.floor(fuel);
-  if(score>=2000 && !levelUpShown){levelUpShown=true; show('🎉 LEVEL UP! Aap Pro Racer ban gaye!');}
- },50);
- setInterval(()=>{if(!playing) return; spawnEnemy(base);},750);
- setInterval(()=>{if(!playing) return; spawnCoin(base);},1000);
- setInterval(()=>{if(!playing) return; spawnPetrol(base);},5000);
+function save(){ localStorage.setItem('ak_products', JSON.stringify(products)); render(); }
+function render(){
+ let q = document.getElementById('search').value.toLowerCase();
+ let box = document.getElementById('products');
+ let list = products.filter(p => p.name.toLowerCase().includes(q) || p.cat.toLowerCase().includes(q));
+ box.innerHTML = list.map((p,i)=>{
+   let realIndex = products.indexOf(p);
+   return `<div class="card">
+     <img src="${p.img}" onerror="this.src='https://via.placeholder.com/400x400?text=AK+Clothing'">
+     <div class="card-body">
+       <h3>${p.name}</h3>
+       <p>${p.cat}</p>
+       <div class="price">Rs. ${p.price}</div>
+       <button class="whatsapp" onclick="order('${p.name}',${p.price})">🟢 ORDER ON WHATSAPP</button>
+       <div class="row">
+         <button class="edit" onclick="editProduct(${realIndex})">✏️ EDIT</button>
+         <button class="delete" onclick="deleteProduct(${realIndex})">🗑️ DELETE</button>
+       </div>
+     </div>
+   </div>`
+ }).join('');
 }
-function spawnEnemy(base){let e=document.createElement('div'); e.className='enemy'; e.innerText=Math.random()>0.85?'🚓':'🚗'; e.style.background='#'+Math.floor(Math.random()*900+100); let lanes=[8,98,188,278]; e.style.left=lanes[Math.floor(Math.random()*4)]+'px'; e.style.top='-100px'; game.appendChild(e); let y=-100; let iv=setInterval(()=>{if(!playing){clearInterval(iv);return;} y+=nitroOn?base+6:base; e.style.top=y+'px'; if(y>430 && y<520 && Math.abs(parseInt(e.style.left)-x)<45){playing=false; coins+=Math.floor(score/10); save(); alert('CRASH! Score: '+score+'\nCoins mile: '+Math.floor(score/10)); location.reload();} if(y>600){clearInterval(iv); e.remove();}},20);}
-function spawnCoin(base){let c=document.createElement('div'); c.className='coin'; c.innerText='🪙'; let lanes=[15,105,195,285]; c.style.left=lanes[Math.floor(Math.random()*4)]+'px'; c.style.top='-40px'; game.appendChild(c); let y=-40; let iv=setInterval(()=>{if(!playing){clearInterval(iv);return;} y+=base; c.style.top=y+'px'; if(y>430 && y<520 && Math.abs(parseInt(c.style.left)-x)<35){coins+=10; score+=50; save(); c.remove(); clearInterval(iv); show('+10 COINS!');} if(y>600){clearInterval(iv); c.remove();}},20);}
-function spawnPetrol(base){let p=document.createElement('div'); p.className='petrol'; p.innerText='⛽'; let lanes=[15,105,195,285]; p.style.left=lanes[Math.floor(Math.random()*4)]+'px'; p.style.top='-60px'; game.appendChild(p); let y=-60; let iv=setInterval(()=>{if(!playing){clearInterval(iv);return;} y+=base; p.style.top=y+'px'; if(y>430 && y<520 && Math.abs(parseInt(p.style.left)-x)<40){fuel=100; p.remove(); clearInterval(iv); show('⛽ PETROL FULL!');} if(y>600){clearInterval(iv); p.remove();}},20);}
+function order(name, price){
+ let msg = `Assalam-o-Alaikum AK Clothing! Mujhe ye order karna hai:%0A%0AProduct: ${name}%0APrice: Rs. ${price}%0A%0AName:%0AAddress:%0ACity:`;
+ window.open(`https://wa.me/${WHATSAPP}?text=${msg}`, '_blank');
+}
+function checkAdmin(){
+ let pass = prompt("Admin Password Dalein:");
+ if(pass === "ak123"){ document.getElementById('adminPanel').style.display='block'; alert("Welcome Admin!"); }
+ else alert("Galat Password!");
+}
+function addProduct(){
+ let n=document.getElementById('pName').value, c=document.getElementById('pCat').value, pr=document.getElementById('pPrice').value, im=document.getElementById('pImg').value;
+ if(!n || !pr){ alert("Name aur Price zaroori hai"); return; }
+ products.unshift({name:n, cat:c||"Product", price:pr, img:im||"https://via.placeholder.com/400x400?text=AK+Clothing"});
+ save(); alert("Product Add Ho Gaya!");
+}
+function editProduct(i){
+ let p = products[i];
+ let newPrice = prompt("Nayi Price Dalein:", p.price);
+ if(newPrice) { p.price = newPrice; save(); }
+}
+function deleteProduct(i){
+ if(confirm("Kya Aap isko delete karna chahte hain?")){ products.splice(i,1); save(); }
+}
+render();
 </script>
 </body>
 </html>
