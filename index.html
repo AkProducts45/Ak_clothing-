@@ -3,122 +3,195 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AK CLOTHING - Style That Feels Like You</title>
+<title>MELLORA - Brownies & Cakes</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
-body{background:#f5f5f5;padding-bottom:20px}
-header{background:#000;color:#fff;text-align:center;padding:22px 10px 18px;position:relative}
-header h1{font-size:42px;letter-spacing:2px;font-weight:900}
-header h1 span{color:#ff1a1a}
-header p{letter-spacing:4px;color:#aaa;font-size:13px;margin-top:4px}
-#adminBtn{position:absolute;top:15px;right:12px;background:#333;color:#fff;border:none;padding:7px 13px;border-radius:20px;font-size:14px;cursor:pointer}
-.search-box{padding:14px}
-.search-box input{width:100%;padding:14px 18px;border-radius:25px;border:1px solid #ddd;font-size:16px;outline:none;background:#fff}
-h2{padding:0 14px;font-size:26px;margin-bottom:12px}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:0 12px}
-.card{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,0.08)}
-.card img{width:100%;height:220px;object-fit:cover;background:#eee}
-.card-body{padding:12px}
-.card-body h3{font-size:18px;line-height:1.2;min-height:44px}
-.card-body p{color:#888;margin:6px 0;font-size:15px}
-.price{font-size:22px;font-weight:900;margin:6px 0 10px}
-.whatsapp{background:#22c55e;color:#fff;border:none;width:100%;padding:12px;border-radius:12px;font-weight:900;font-size:15px;cursor:pointer;margin-bottom:8px}
-.row{display:flex;gap:8px}
-.edit{flex:1;background:#ff9800;color:#fff;border:none;padding:11px;border-radius:10px;font-weight:900;cursor:pointer}
-.delete{flex:1;background:#ff2222;color:#fff;border:none;padding:11px;border-radius:10px;font-weight:900;cursor:pointer}
-footer{background:#000;color:#fff;text-align:center;padding:22px 12px;margin-top:20px;line-height:1.7}
-footer b{color:#22c55e}
-#adminPanel{display:none;background:#fff;margin:12px;padding:15px;border-radius:15px}
-#adminPanel input{width:100%;padding:12px;margin:6px 0;border:1px solid #ddd;border-radius:10px}
-#adminPanel button{width:100%;padding:13px;background:#000;color:#fff;border:none;border-radius:10px;font-weight:900;margin-top:8px}
+* { margin:0; padding:0; box-sizing:border-box; font-family:Arial, sans-serif; }
+body { background:#fff7f0; padding-bottom:20px; }
+header { background:#2b1200; color:#fff; text-align:center; padding:26px 10px; position:relative; }
+header h1 { font-size:44px; font-weight:900; letter-spacing:3px; }
+header p { letter-spacing:3px; color:#ffccaa; font-size:13px; margin-top:6px; }
+#adminPanel { display:none; background:#fff; margin:12px; padding:15px; border-radius:15px; box-shadow:0 2px 10px rgba(0,0,0,0.08); }
+#adminPanel h3 { margin-bottom:8px; }
+#adminPanel input, #adminPanel select { width:100%; padding:12px; margin:6px 0; border:1px solid #ddd; border-radius:10px; font-size:15px; }
+#adminPanel button { width:100%; padding:13px; background:#2b1200; color:#fff; border:none; border-radius:10px; font-weight:900; margin-top:8px; cursor:pointer; font-size:15px; }
+.search-box { padding:14px; }
+.search-box input { width:100%; padding:14px 18px; border-radius:25px; border:1px solid #ffd9c0; font-size:16px; outline:none; background:#fff; }
+.filter { display:flex; gap:8px; padding:0 14px 12px; }
+.filter button { flex:1; padding:11px; border:none; border-radius:20px; font-weight:900; cursor:pointer; background:#ffe8d6; font-size:14px; }
+.filter button.active { background:#2b1200; color:#fff; }
+h2 { padding:0 14px; font-size:26px; margin-bottom:12px; }
+.grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; padding:0 12px; }
+.card { background:#fff; border-radius:16px; overflow:hidden; box-shadow:0 2px 12px rgba(0,0,0,0.08); }
+.card img { width:100%; height:200px; object-fit:cover; display:block; }
+.card-body { padding:12px; }
+.card-body h3 { font-size:17px; line-height:1.3; min-height:44px; }
+.card-body p { color:#999; margin:6px 0; font-size:13px; }
+.badge { background:#ff8c42; color:#fff; font-size:11px; padding:4px 9px; border-radius:10px; display:inline-block; }
+.price { font-size:22px; font-weight:900; margin:8px 0 10px; }
+.whatsapp { background:#22c55e; color:#fff; border:none; width:100%; padding:12px; border-radius:12px; font-weight:900; font-size:14px; cursor:pointer; margin-bottom:8px; }
+.row { display:none; gap:8px; }
+.row.show { display:flex; }
+.edit { flex:1; background:#ff9800; color:#fff; border:none; padding:11px; border-radius:10px; font-weight:900; cursor:pointer; }
+.delete { flex:1; background:#ff2222; color:#fff; border:none; padding:11px; border-radius:10px; font-weight:900; cursor:pointer; }
+footer { background:#2b1200; color:#fff; text-align:center; padding:22px 12px; margin-top:20px; line-height:1.7; font-size:14px; }
+footer b { color:#22c55e; }
 </style>
 </head>
 <body>
 
 <header>
-<button id="adminBtn" onclick="checkAdmin()">⚙️ Admin</button>
-<h1>AK <span>CLOTHING</span></h1>
-<p>STYLE THAT FEELS LIKE YOU</p>
+<h1>MELLORA</h1>
+<p>FRESH • SOFT • CHOCOLATY</p>
 </header>
 
 <div id="adminPanel">
-<h3>➕ Naya Product Add Karein</h3>
-<input id="pName" placeholder="Product Name - Jaise JUPITER Hoodie">
-<input id="pCat" placeholder="Category - Hoodie / T-Shirt">
-<input id="pPrice" type="number" placeholder="Price - 2499">
+<h3>➕ Admin - Naya Item Add Karein</h3>
+<p style="font-size:13px;color:#888;margin-bottom:8px">Ye product sab customers ko dikhega.</p>
+<input id="ghToken" placeholder="GitHub Token Dalein - Sirf Pehli Dafa (ghp_...)" type="password">
+<input id="pName" placeholder="Naam - Jaise Fudge Brownie">
+<select id="pCat"><option value="Brownie">Brownie</option><option value="Cake">Cake</option></select>
+<input id="pPrice" type="number" placeholder="Price - 499">
 <input id="pImg" placeholder="Image Link Paste Karein">
-<button onclick="addProduct()">✅ ADD PRODUCT</button>
-<button onclick="document.getElementById('adminPanel').style.display='none'" style="background:#777">Band Karein</button>
+<button onclick="addProduct()">✅ ADD ITEM - SAB KO DIKHEGA</button>
+<button onclick="logoutAdmin()" style="background:#777">🔒 Admin Band Karein</button>
 </div>
 
-<div class="search-box">
-<input id="search" oninput="render()" placeholder="🔍 Search - T-Shirt, Pant...">
+<div class="search-box"><input id="search" oninput="render()" placeholder="🔍 Search - Brownie, Cake..."></div>
+
+<div class="filter">
+<button id="btnAll" class="active" onclick="setFilter('All')">All</button>
+<button id="btnBrownie" onclick="setFilter('Brownie')">🍫 Brownie</button>
+<button id="btnCake" onclick="setFilter('Cake')">🎂 Cake</button>
 </div>
 
-<h2>🛍️ Our Products</h2>
-<div class="grid" id="products"></div>
+<h2>🍫 Our Menu</h2>
+<div class="grid" id="products"><p style="padding:10px">Loading...</p></div>
 
 <footer>
-<p>© 2026 AK Clothing | Lahore, Pakistan</p>
-<p>Cash On Delivery All Over Pakistan 🚚</p>
-<p>Order On WhatsApp: <b>0308 6625610</b></p>
+<p>© 2026 MELLORA | Lahore, Pakistan</p>
+<p>Freshly Baked Daily • Home Delivery Available 🚚</p>
+<p>Order On WhatsApp: <b>0326 4580349</b></p>
 </footer>
 
 <script>
-let WHATSAPP = "923086625610"; // Aap ka number
-let products = JSON.parse(localStorage.getItem('ak_products') || 'null') || [
- {name:"JUPITER Hoodie - Black Techwear", cat:"Hoodie", price:2499, img:"https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=600"},
- {name:"Itachi hoodie", cat:"Hoodie", price:2799, img:"https://images.unsplash.com/photo-1578681994506-b8f463449011?w=600"},
- {name:"AK Oversized T-Shirt", cat:"T-Shirt", price:1499, img:"https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600"},
- {name:"AK Cargo Pant", cat:"Pant", price:2999, img:"https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=600"}
+let WHATSAPP = "923264580349";
+let filter = "All";
+let isAdmin = false;
+let products = [];
+
+// 👇 YAHAN APNA GITHUB NAAM AUR REPO NAAM LIKHEIN
+let GITHUB_USER = "akproducts45";
+let GITHUB_REPO = "Ak_clothing-";
+let GITHUB_BRANCH = "main";
+
+let defaultProducts = [
+  { name: "Classic Fudge Brownie", cat: "Brownie", price: 499, img: "https://images.unsplash.com/photo-1606312619070-d48b4c652a52?w=600&q=80" },
+  { name: "Nutella Loaded Brownie", cat: "Brownie", price: 699, img: "https://images.unsplash.com/photo-1618923850107-d1a234d7a73a?w=600&q=80" },
+  { name: "Lotus Biscoff Brownie", cat: "Brownie", price: 799, img: "https://images.unsplash.com/photo-1624353365286-3f8d62daad51?w=600&q=80" },
+  { name: "Chocolate Fudge Cake - 1 Pound", cat: "Cake", price: 1499, img: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600&q=80" },
+  { name: "Lotus Cake - 1 Pound", cat: "Cake", price: 1899, img: "https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=600&q=80" },
+  { name: "Birthday Special Cake - 2 Pound", cat: "Cake", price: 2999, img: "https://images.unsplash.com/photo-1535141192574-5d4897c12636?w=600&q=80" }
 ];
 
-function save(){ localStorage.setItem('ak_products', JSON.stringify(products)); render(); }
-function render(){
- let q = document.getElementById('search').value.toLowerCase();
- let box = document.getElementById('products');
- let list = products.filter(p => p.name.toLowerCase().includes(q) || p.cat.toLowerCase().includes(q));
- box.innerHTML = list.map((p,i)=>{
-   let realIndex = products.indexOf(p);
-   return `<div class="card">
-     <img src="${p.img}" onerror="this.src='https://via.placeholder.com/400x400?text=AK+Clothing'">
-     <div class="card-body">
-       <h3>${p.name}</h3>
-       <p>${p.cat}</p>
-       <div class="price">Rs. ${p.price}</div>
-       <button class="whatsapp" onclick="order('${p.name}',${p.price})">🟢 ORDER ON WHATSAPP</button>
-       <div class="row">
-         <button class="edit" onclick="editProduct(${realIndex})">✏️ EDIT</button>
-         <button class="delete" onclick="deleteProduct(${realIndex})">🗑️ DELETE</button>
-       </div>
-     </div>
-   </div>`
- }).join('');
+async function loadProducts() {
+  try {
+    let res = await fetch("https://raw.githubusercontent.com/" + GITHUB_USER + "/" + GITHUB_REPO + "/" + GITHUB_BRANCH + "/products.json?t=" + Date.now());
+    if (res.ok) { products = await res.json(); } else { products = defaultProducts; }
+  } catch(e) { products = defaultProducts; }
+  render();
 }
-function order(name, price){
- let msg = `Assalam-o-Alaikum AK Clothing! Mujhe ye order karna hai:%0A%0AProduct: ${name}%0APrice: Rs. ${price}%0A%0AName:%0AAddress:%0ACity:`;
- window.open(`https://wa.me/${WHATSAPP}?text=${msg}`, '_blank');
+
+function checkAdminFromURL() {
+  let params = new URLSearchParams(window.location.search);
+  if (params.get("admin") === "AK786") {
+    isAdmin = true;
+    document.getElementById("adminPanel").style.display = "block";
+    let savedToken = localStorage.getItem("mellora_gh_token");
+    if (savedToken) document.getElementById("ghToken").value = savedToken;
+  }
 }
-function checkAdmin(){
- let pass = prompt("Admin Password Dalein:");
- if(pass === "ak123"){ document.getElementById('adminPanel').style.display='block'; alert("Welcome Admin!"); }
- else alert("Galat Password!");
+function logoutAdmin() { window.location.href = window.location.pathname; }
+
+function setFilter(f) {
+  filter = f;
+  document.getElementById("btnAll").classList.remove("active");
+  document.getElementById("btnBrownie").classList.remove("active");
+  document.getElementById("btnCake").classList.remove("active");
+  if (f === "All") document.getElementById("btnAll").classList.add("active");
+  if (f === "Brownie") document.getElementById("btnBrownie").classList.add("active");
+  if (f === "Cake") document.getElementById("btnCake").classList.add("active");
+  render();
 }
-function addProduct(){
- let n=document.getElementById('pName').value, c=document.getElementById('pCat').value, pr=document.getElementById('pPrice').value, im=document.getElementById('pImg').value;
- if(!n || !pr){ alert("Name aur Price zaroori hai"); return; }
- products.unshift({name:n, cat:c||"Product", price:pr, img:im||"https://via.placeholder.com/400x400?text=AK+Clothing"});
- save(); alert("Product Add Ho Gaya!");
+
+function render() {
+  let q = document.getElementById("search").value.toLowerCase();
+  let box = document.getElementById("products");
+  let list = products.filter(function(p) { return (filter === "All" || p.cat === filter) && p.name.toLowerCase().includes(q); });
+  box.innerHTML = list.map(function(p) {
+    let i = products.indexOf(p);
+    let adminButtons = "";
+    if (isAdmin) { adminButtons = '<div class="row show"><button class="edit" onclick="editProduct(' + i + ')">✏️ EDIT</button><button class="delete" onclick="deleteProduct(' + i + ')">🗑️ DELETE</button></div>'; }
+    return '<div class="card">'
+      + '<img src="' + p.img + '" onerror="this.src=\'https://via.placeholder.com/400x400?text=MELLORA\'">'
+      + '<div class="card-body">'
+      + '<span class="badge">' + p.cat + '</span>'
+      + '<h3 style="margin-top:6px">' + p.name + '</h3>'
+      + '<p>Freshly Baked • Lahore</p>'
+      + '<div class="price">Rs. ' + p.price + '</div>'
+      + '<button class="whatsapp" onclick="orderProduct(\'' + p.name + '\',' + p.price + ')">🟢 ORDER ON WHATSAPP</button>'
+      + adminButtons + '</div></div>';
+  }).join("");
 }
-function editProduct(i){
- let p = products[i];
- let newPrice = prompt("Nayi Price Dalein:", p.price);
- if(newPrice) { p.price = newPrice; save(); }
+
+function orderProduct(name, price) {
+  let msg = "Assalam-o-Alaikum MELLORA! Mujhe ye order karna hai:%0A%0AItem: " + name + "%0APrice: Rs. " + price + "%0A%0AName:%0AAddress:%0ACity: Lahore";
+  window.open("https://wa.me/" + WHATSAPP + "?text=" + msg, "_blank");
 }
-function deleteProduct(i){
- if(confirm("Kya Aap isko delete karna chahte hain?")){ products.splice(i,1); save(); }
+
+async function saveToGitHub() {
+  let token = document.getElementById("ghToken").value.trim();
+  if (!token) { alert("Pehle GitHub Token Dalein"); return false; }
+  localStorage.setItem("mellora_gh_token", token);
+  try {
+    let getRes = await fetch("https://api.github.com/repos/" + GITHUB_USER + "/" + GITHUB_REPO + "/contents/products.json", { headers: { "Authorization": "Bearer " + token } });
+    let getData = await getRes.json();
+    let content = btoa(unescape(encodeURIComponent(JSON.stringify(products, null, 2))));
+    let putRes = await fetch("https://api.github.com/repos/" + GITHUB_USER + "/" + GITHUB_REPO + "/contents/products.json", {
+      method: "PUT",
+      headers: { "Authorization": "Bearer " + token, "Content-Type": "application/json" },
+      body: JSON.stringify({ message: "Update products - MELLORA", content: content, sha: getData.sha, branch: GITHUB_BRANCH })
+    });
+    if (putRes.ok) { return true; } else { let e = await putRes.json(); alert("GitHub Error: " + e.message); return false; }
+  } catch(e) { alert("Error: " + e.message); return false; }
 }
-render();
+
+async function addProduct() {
+  let n = document.getElementById("pName").value.trim();
+  let c = document.getElementById("pCat").value;
+  let pr = document.getElementById("pPrice").value;
+  let im = document.getElementById("pImg").value.trim();
+  if (!n || !pr) { alert("Naam aur Price zaroori hai"); return; }
+  products.unshift({ name: n, cat: c, price: pr, img: im || "https://via.placeholder.com/400x400?text=MELLORA" });
+  let ok = await saveToGitHub();
+  if (ok) { alert("Ho Gaya! Ab ye product sab customers ko dikhega. 1 minute me refresh karein."); document.getElementById("pName").value=""; document.getElementById("pPrice").value=""; document.getElementById("pImg").value=""; render(); }
+}
+
+async function editProduct(i) {
+  let p = products[i];
+  let newName = prompt("Naya Naam Dalein:", p.name); if (newName) p.name = newName;
+  let newPrice = prompt("Nayi Price Dalein:", p.price); if (newPrice) p.price = newPrice;
+  let ok = await saveToGitHub(); if (ok) { alert("Update Ho Gaya! Sab ko dikhega."); render(); }
+}
+
+async function deleteProduct(i) {
+  if (confirm("Kya Aap isko delete karna chahte hain? Ye sab ke liye delete hoga.")) {
+    products.splice(i, 1);
+    let ok = await saveToGitHub(); if (ok) { alert("Delete Ho Gaya!"); render(); }
+  }
+}
+
+checkAdminFromURL();
+loadProducts();
 </script>
 </body>
 </html>
