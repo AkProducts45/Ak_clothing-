@@ -10,16 +10,6 @@
     ]
   },
   {
-    "name": "Black Hoodie - Premium",
-    "cat": "Hoodie",
-    "price": 2499,
-    "imgs": [
-      "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=600&q=80",
-      "https://images.unsplash.com/photo-1509942774463-acf339cf87d5?w=600&q=80",
-      "https://images.unsplash.com/photo-1578681994506-b8f463449011?w=600&q=80"
-    ]
-  },
-  {
     "name": "Grey Hoodie - Winter",
     "cat": "Hoodie",
     "price": 2299,
