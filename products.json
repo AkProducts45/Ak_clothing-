@@ -18,15 +18,5 @@
       "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=600&q=80",
       "https://images.unsplash.com/photo-1475178626620-a4d074967452?w=600&q=80"
     ]
-  },
-  {
-    "name": "Black Cargo Pants",
-    "cat": "Jeans",
-    "price": 2799,
-    "imgs": [
-      "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?w=600&q=80",
-      "https://images.unsplash.com/photo-1542272604-787c3835535d?w=600&q=80",
-      "https://images.unsplash.com/photo-1473966968600-fa801b869a1a?w=600&q=80"
-    ]
   }
 ]
