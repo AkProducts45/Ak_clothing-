@@ -1,15 +1,5 @@
 [
   {
-    "name": "Oversized White T-Shirt",
-    "cat": "T-Shirt",
-    "price": 1199,
-    "imgs": [
-      "https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=600&q=80",
-      "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600&q=80",
-      "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=600&q=80"
-    ]
-  },
-  {
     "name": "Grey Hoodie - Winter",
     "cat": "Hoodie",
     "price": 2299,
